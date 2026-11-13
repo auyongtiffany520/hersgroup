@@ -1,25 +1,540 @@
 <!DOCTYPE html>
-<html lang="zh"><head>
+<html lang="zh">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta http-equiv="refresh" content="60">
-<title>爆款雷达 · 还在加载</title>
+<title>WOMEN WELLNESS AND BEAUTY </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-       background:#0a0d13;color:#e8e8ea;text-align:center;padding:24px;
-       font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
-  .spin{width:34px;height:34px;margin:0 auto 26px;border:3px solid #2a2f3a;
-        border-top-color:#ff785a;border-radius:50%;animation:s 1s linear infinite}
-  @keyframes s{to{transform:rotate(360deg)}}
-  h1{font-size:23px;margin:0 0 14px;font-weight:600}
-  p{margin:8px 0;color:#9a9aa2;font-size:15px;line-height:1.75}
-  .hint{margin-top:30px;font-size:13.5px;color:#6e6e78}
-  @media(prefers-reduced-motion:reduce){.spin{animation:none}}
-</style></head><body><div>
-  <div class="spin"></div>
-  <h1>你的页面还在加载中,请稍等</h1>
-  <p>第一次大约需要 20-60 分钟。</p>
-  <p>这一页会自己刷新,你可以先去忙别的。</p>
-  <p class="hint">等很久都没变?回到安装 SOP 第 7 步,<br>到仓库的 Actions 看 Sync Content 有没有跑完。</p>
-</div></body></html>
+  :root {
+    --bg: #0a0d13;
+    --card: #11151d;
+    --card-hi: #151a24;
+    --border: #1d2430;
+    --border-hi: #2c3546;
+    --text: #e8ecf3;
+    --muted: #8a94a6;
+    --faint: #5b6577;
+    --accent: #5ea1ff;
+    --green: #3fd68f;
+    --orange: #f0a33f;
+    --pink: #ff6b9d;
+    --red: #ff5c5c;
+    --fire1: #ff8a3d;
+    --fire2: #ff4d6d;
+    --font: 'Inter', -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --disp: 'Space Grotesk', 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scrollbar-color: #232c3b var(--bg); }
+  body { background: var(--bg); color: var(--text); font-family: var(--font);
+    -webkit-font-smoothing: antialiased; }
+  ::selection { background: rgba(94,161,255,.3); }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #232c3b; border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2c3546; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+  .ic { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round; fill: none; flex: none; }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(10,13,19,.86);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border); padding: 13px 20px 12px; }
+  .hrow { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; max-width: 1440px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 10px; margin-right: auto; }
+  .mark { width: 31px; height: 31px; border-radius: 9px; display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--fire1), var(--fire2));
+    box-shadow: 0 4px 16px rgba(255,92,80,.35); }
+  .mark .ic { width: 17px; height: 17px; color: #fff; }
+  h1 { font-family: var(--disp); font-size: 16.5px; font-weight: 700; letter-spacing: .2px; white-space: nowrap; line-height: 1.15; }
+  h1 small { display: block; color: var(--faint); font-family: var(--font); font-weight: 400;
+    font-size: 10.5px; letter-spacing: 0; }
+
+  .search { position: relative; }
+  .search > .ic { position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+    color: var(--faint); width: 13.5px; pointer-events: none; }
+  input#fSearch { background: var(--card); color: var(--text); border: 1px solid var(--border);
+    border-radius: 10px; padding: 8px 12px 8px 32px; font-size: 13px; font-family: var(--font);
+    width: 200px; transition: border-color .18s, background .18s; }
+  input#fSearch:hover { border-color: var(--border-hi); }
+  input#fSearch:focus { border-color: var(--accent); outline: none; }
+  input#fSearch::placeholder { color: var(--faint); }
+
+  select, .btn { background: var(--card); color: var(--text); border: 1px solid var(--border);
+    border-radius: 10px; padding: 8px 11px; font-size: 13px; font-family: var(--font);
+    cursor: pointer; transition: border-color .18s, background .18s, color .18s;
+    display: inline-flex; align-items: center; gap: 6px; }
+  select:hover, .btn:hover { border-color: var(--border-hi); background: var(--card-hi); }
+  .btn:active { transform: scale(.97); }
+  .btn.on { border-color: var(--accent); color: var(--accent); background: rgba(94,161,255,.08); }
+
+  .tabs { display: flex; gap: 7px; flex-wrap: wrap; max-width: 1440px; margin: 12px auto 0; }
+  .tab { display: inline-flex; align-items: center; gap: 7px; background: var(--card);
+    border: 1px solid var(--border); border-radius: 999px; padding: 6.5px 14px;
+    font-size: 13px; color: var(--muted); cursor: pointer; user-select: none;
+    transition: border-color .18s, background .18s, color .18s, transform .18s; }
+  .tab:hover { border-color: var(--border-hi); color: var(--text); }
+  .tab .cnt { font-family: var(--disp); font-weight: 600; font-size: 11px;
+    background: rgba(255,255,255,.06); padding: 1.5px 7.5px; border-radius: 99px;
+    font-variant-numeric: tabular-nums; }
+  .tab.on { color: var(--text);
+    background: linear-gradient(135deg, rgba(255,138,61,.15), rgba(255,77,109,.15));
+    border-color: rgba(255,120,90,.45); }
+  .tab.on .cnt { background: rgba(255,120,90,.25); }
+  body.dragging .tab.droppable { border-style: dashed; border-color: var(--accent); }
+  .tab.over { background: rgba(94,161,255,.22); color: var(--text); transform: scale(1.07); }
+
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; max-width: 1440px; margin: 9px auto 0; align-items: center; }
+  .chips .lbl { font-size: 12px; color: var(--faint); margin-right: 2px; }
+  .chip2 { display: inline-flex; align-items: center; gap: 5.5px; background: var(--card);
+    border: 1px solid var(--border); border-radius: 999px; padding: 4.5px 12px;
+    font-size: 12px; color: var(--muted); cursor: pointer; user-select: none;
+    transition: border-color .18s, color .18s, background .18s;
+    font-variant-numeric: tabular-nums; }
+  .chip2 .ic { width: 12.5px; height: 12.5px; }
+  .chip2:hover { border-color: var(--border-hi); color: var(--text); }
+  .chip2.on { border-color: rgba(240,163,63,.6); color: var(--orange); background: rgba(240,163,63,.08); }
+
+  main { max-width: 1440px; margin: 22px auto; padding: 0 20px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(305px, 1fr)); gap: 18px; }
+
+  .card { position: relative; background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; display: flex; flex-direction: column;
+    transition: transform .22s cubic-bezier(.2,.7,.3,1), border-color .22s, box-shadow .22s;
+    animation: fadeUp .45s cubic-bezier(.2,.7,.3,1) both; }
+  .card:hover { transform: translateY(-3px); border-color: var(--border-hi);
+    box-shadow: 0 12px 32px rgba(0,0,0,.45); }
+  .card.outlier::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--fire1), var(--fire2)); z-index: 2; }
+  .card[draggable] { cursor: grab; }
+  .card.lifting { opacity: .45; }
+  .card.saved { border-color: var(--green); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .embed { position: relative; width: 100%; aspect-ratio: 4/5; background: #080b10; }
+  .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .embed .ph { position: absolute; inset: 0; display: grid; place-items: center;
+    background: linear-gradient(110deg, #0b0e15 8%, #121826 18%, #0b0e15 33%);
+    background-size: 200% 100%; animation: shimmer 1.5s linear infinite; }
+  .embed .ph .ic { width: 30px; height: 30px; color: #2a3342; stroke-width: 1.6; }
+  @keyframes shimmer { to { background-position-x: -200%; } }
+
+  .meta { padding: 13px 15px 14px; display: flex; flex-direction: column; gap: 9px; }
+  .row1 { display: flex; align-items: center; gap: 7px; font-size: 13px; flex-wrap: wrap; }
+  .handle { color: #3a4456; cursor: grab; display: inline-flex; }
+  .handle .ic { width: 13px; height: 13px; }
+  .who { font-weight: 600; color: var(--accent); text-decoration: none; }
+  .who:hover { text-decoration: underline; }
+  .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 500;
+    padding: 2.5px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+  .badge .ic { width: 10.5px; height: 10.5px; }
+  .badge.bnew { color: var(--pink); border-color: rgba(255,107,157,.45); background: rgba(255,107,157,.07); }
+  .badge.bhorse { color: var(--orange); border-color: rgba(240,163,63,.45); background: rgba(240,163,63,.07); }
+  .badge.bbait { color: var(--accent); border-color: rgba(94,161,255,.4); background: rgba(94,161,255,.07); }
+  .date { margin-left: auto; color: var(--faint); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+  .nums { display: flex; gap: 6px; flex-wrap: wrap; }
+  .num { display: inline-flex; align-items: center; gap: 5px; background: #0c0f16;
+    border: 1px solid var(--border); border-radius: 9px; padding: 5px 9px;
+    font-size: 11px; color: var(--muted); }
+  .num .ic { width: 11.5px; height: 11.5px; }
+  .num b { font-family: var(--disp); color: var(--text); font-size: 12.5px; font-weight: 600;
+    font-variant-numeric: tabular-nums; }
+  .num.hot { border-color: rgba(255,122,77,.35); }
+  .num.hot .ic, .num.hot b { color: #ff7a4d; }
+  .num.x { border-color: rgba(240,163,63,.35); }
+  .num.x .ic, .num.x b { color: var(--orange); }
+  .num.er .ic, .num.er b { color: var(--green); }
+
+  .cap { color: var(--muted); font-size: 12.5px; line-height: 1.55; display: -webkit-box;
+    -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+  .cap.open { -webkit-line-clamp: unset; }
+  .cap b { color: var(--text); font-weight: 600; }
+  .ai { border-left: 2px solid var(--orange); background: rgba(240,163,63,.06);
+    padding: 8px 11px; border-radius: 0 10px 10px 0; font-size: 12px; line-height: 1.65;
+    color: var(--muted); }
+  .ai b { color: var(--orange); font-weight: 600; }
+  .mine { border-left: 2px solid var(--green); background: rgba(63,214,143,.06);
+    padding: 8px 11px; border-radius: 0 10px 10px 0; font-size: 12px; line-height: 1.65;
+    color: var(--muted); cursor: pointer; display: -webkit-box; -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical; overflow: hidden; white-space: pre-wrap; }
+  .mine.open { -webkit-line-clamp: unset; }
+  .mine b { color: var(--green); font-weight: 600; }
+
+  .srow { display: flex; align-items: center; gap: 7px; }
+  .srow label { font-size: 12px; color: var(--faint); }
+  .status { flex: 1; padding: 6px 9px; font-size: 12.5px; }
+  .status.s未处理 { color: var(--muted); }
+  .status.s拍摄中 { color: var(--orange); border-color: rgba(240,163,63,.5); }
+  .status.s已处理 { color: var(--green); border-color: rgba(63,214,143,.5); }
+  .status.s跳过 { color: var(--red); border-color: rgba(255,92,92,.5); }
+  .abtn { display: inline-flex; align-items: center; gap: 5px; background: #0c0f16;
+    color: var(--muted); border: 1px solid var(--border); border-radius: 9px;
+    padding: 6px 10px; font-size: 11.5px; font-family: var(--font); cursor: pointer;
+    text-decoration: none; transition: color .18s, border-color .18s, transform .1s; }
+  .abtn .ic { width: 12px; height: 12px; }
+  .abtn:hover { color: var(--accent); border-color: rgba(94,161,255,.5); }
+  .abtn:active { transform: scale(.95); }
+
+  .more { text-align: center; margin: 28px 0 44px; }
+  .more button { background: var(--card); color: var(--accent); border: 1px solid var(--border);
+    border-radius: 12px; padding: 11px 30px; font-size: 14px; font-family: var(--font);
+    cursor: pointer; transition: border-color .18s, background .18s; }
+  .more button:hover { border-color: var(--border-hi); background: var(--card-hi); }
+
+  .empty { color: var(--faint); text-align: center; padding: 70px 0; display: flex;
+    flex-direction: column; align-items: center; gap: 12px; font-size: 14px; }
+  .empty .ic { width: 34px; height: 34px; stroke-width: 1.5; color: #2c3546; }
+
+  footer { color: var(--faint); font-size: 11px; text-align: center; padding: 22px; }
+
+  #toast { position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%) translateY(8px);
+    background: var(--card-hi); border: 1px solid var(--border-hi); border-radius: 11px;
+    padding: 11px 20px; font-size: 13px; display: none; z-index: 99; opacity: 0;
+    box-shadow: 0 12px 32px rgba(0,0,0,.5); transition: opacity .2s, transform .2s; }
+  #toast.show { display: block; opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7l-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.5l7.1-.6z"/></symbol>
+  <symbol id="i-magnet" viewBox="0 0 24 24"><path d="m6 15-4-4 6.75-6.77a7.79 7.79 0 0 1 11 11L13 22l-4-4 6.39-6.36a2.14 2.14 0 0 0-3-3L6 15"/><path d="m5 8 4 4"/><path d="m12 15 4 4"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6"/><path d="M9 16h6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><path d="m10 8 6 4-6 4Z"/><rect x="2" y="4" width="20" height="16" rx="3"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+  <symbol id="i-grip" viewBox="0 0 24 24"><circle cx="9" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="19" r="1"/></symbol>
+  <symbol id="i-pct" viewBox="0 0 24 24"><path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></symbol>
+</svg>
+<header>
+  <div class="hrow">
+    <div class="brand">
+      <div class="mark"><svg class="ic"><use href="#i-flame"/></svg></div>
+      <h1>WOMEN WELLNESS AND BEAUTY <small id="updated"></small></h1>
+    </div>
+    <div class="search"><svg class="ic"><use href="#i-search"/></svg>
+      <input id="fSearch" placeholder="搜文案 / hashtag / 账号"></div>
+    <select id="fTracker"><option value="">全部 Tracker</option></select>
+    <select id="fComp"><option value="">全部 Competitor</option></select>
+    <select id="fSort">
+      <option value="x">按 爆款倍数 (vs 自家平均)</option>
+      <option value="score">按 Viral Score</option>
+      <option value="er">按 Engagement Rate</option>
+      <option value="comments">按 Comments</option>
+      <option value="likes">按 Likes</option>
+      <option value="date">按 最新日期</option>
+    </select>
+    <button class="btn" id="fVideo"><svg class="ic"><use href="#i-video"/></svg>只看视频</button>
+
+    <a class="btn" href="team.html" target="_top" title="工作台"><svg class="ic"><use href="#i-users"/></svg>工作台</a>
+  </div>
+  <div class="tabs" id="tabs"></div>
+  <div class="chips" id="presets"></div>
+  <div class="chips" id="trends"></div>
+</header>
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none"><svg class="ic"><use href="#i-search"/></svg>没有符合条件的帖子</div>
+  <div class="more" id="moreWrap" style="display:none"><button id="moreBtn">载入更多</button></div>
+</main>
+<footer>数据来源 Supabase · 每周自动更新 · 状态更改即时同步全团队 · 视频由 Instagram 官方 embed 播放</footer>
+<div id="toast"></div>
+<script id="data" type="application/json">[{"id": "DdjHHCSFCoD", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "如果現在這份收入突然停下來，妳手上還有第二個選擇嗎？\n💬 留言「我要飛」，讓我們從歷練到行動、影響，一起開創新一年的成長！\n\n很多人認識ㄚ頭，是從《我愛黑澀會》開始。但她其實很早就感受到，演藝工作沒有固定收入，所以從 18 歲開始存錢，花了大約 5 年存下第一個 100 萬。\n\n有了第一桶金之後，她開始把收入往外打開。從餐飲、手搖飲，到美容、電商，一路嘗試不同事業，也慢慢有了「副業女王」的稱號。\n\n每進入一個新市場，她都在重新問自己：這是不是我了解的客群？市場真正缺的是什麼？我能不能做出和別人不一樣的地方？\n\n因此真正值得了解的，不只是她「做過很多副業」，而是「她是如何選擇哪些副業值得嘗試？」\n\n2027《姐帶妳飛》邀請 ㄚ頭 詹子晴跟大家一起聊：「打開收入：創造多元收入與變現可能」。從社群趨勢、微創業，到她真正走過的副業經驗，一同學習如何透過認知到當前的趨勢，並結合自己的能力，以及找到自己在市場中的定位，開拓出新收入的可能性。\n\n💬 留言「我要飛」，我們將把 2027《姐帶妳飛》課程傳給想要成長的妳。\n\n#姐帶妳飛 #女力學院 #ㄚ頭 #詹子晴  #微創業", "transcript": "", "brk": "Hook类型: 痛点直击\n结构: 提问引发焦虑 → 艺人成功转型案例 → 揭示方法论 → 引导转化\n为什么火: 用大众熟知的名人搞钱历例，精准戳中女性对财务安全感与副业的渴望。\n改编角度: 结合女性保养与健康赛道，用真实素人逆袭案例，切入如何兼顾美丽与财富。", "my": "如果現在這份收入突然停下來，妳手上還有第二個選擇嗎？\n\n很多媽媽都這樣，每天忙着照顧孩子和家庭，日子過得團團轉，心裏常常覺得很累。\n\n大家總以爲，想要改變現狀一定要花很多錢去投資，或者把現在的生活全部打亂重新來過。\n\n但我認為，真正讓人心力交瘁的，往往不是忙碌本身，而是長期把所有人都排在自己前面，把自己給弄丟了。\n\n我們可以從一件小事開始，慢慢找回自己的生活節奏。\n\n第一步，每天留出十分鐘給自己。什麼都不用做，只是安靜地坐着，聽聽自己的呼吸，試着去覺察身體每一個緊繃的部位。\n\n這樣做能幫我們從緊湊的日常裏抽離出來，花費是零。做完之後，整個人會覺得放鬆很多，不再那麼急躁。\n\n第二步，重新整理自己的時間。把照顧別人的時間分出一小部分，用來做自己真正想做的事，比如讀一頁書或者散步。\n\n這個方法不需要花錢，能幫我們建立邊界。做完之後，妳會發現內心的內耗少了很多，每一天也更有掌控感。\n\n第三步，試着走進Hers的沙龍會，去和一些懂妳的姐妹們聊聊天，聽聽她們的故事。\n\n這項活動的費用在 80 到 250 之間，門檻不高。去體驗一次之後，妳會開始看見自己的需求，不再總是委屈自己。\n\n很多媽媽以前總是把家裏照顧得很好，卻唯獨忘了照顧自己，每天在焦慮和疲憊裏打轉。\n\n當她們開始學習照顧自己、學會內觀和覺察之後，整個人變得柔軟而堅定，連身邊的關係也跟着慢慢變好。\n\n如果妳也想找回那個溫柔又有力量的自己，可以私信我了解更多。希望能幫到大家。", "tags": "姐帶妳飛, 女力學院, ㄚ頭, 詹子晴, 微創業", "bait": true, "type": "Carousel", "likes": 3364, "comments": 236, "er": 14.32, "followers": 25138, "date": "2026-09-21", "url": "https://www.instagram.com/p/DdjHHCSFCoD/", "video": false, "ratio": 0, "score": 16.2, "status": "未处理", "x": 43.8}, {"id": "DePSvzYgagx", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "挫折失敗有時是宇宙提醒我們要慢下來的訊號\n\n#姐妹悄悄話 #sisterstalktalkshow #ep216", "transcript": "如果宇宙要你停 你一定要停你不要急的一直去证明什么我觉得这个时候很容易出错人一急的时候在做的决定很容易出错或者你很容易内耗很多的你们常常会问我说要怎么不内耗因为我以前也是一个很内耗的人我现在Sometimes也是会内耗但是我发现真的导致一个人内耗就是你很急你很急想要做快点 很多事因为你很急想要把这个事情解决你就会想很多方案要怎么把它解决然后你把你自己的energy都放在可是其实这个事情如果不是只有你一个人控制的话要靠很多人都想要解决 还能解决得了你一个人想要解决 解决不了那你急着要去想很多方案铺满这个东西那人家还没有准备好解决你在想那么多也没有用所以我现在我比因为我还是会内耗 人还是会内耗我现在就会把它分成区块比如说我现在有五件事今天要处理什么事情是我一个人能够控制的我先解决它因为那个最简单我就自己决定自己做有什么事情是大区块要通知要想的给自己时间一定要给自己时间因为现在去去缴获在里面我是去那种折磨在里面没有用因为你是一个人折磨别人还没有准备好那就先放着然后我会发现时间是你最好的一个引导者因为你经验的想法可能很卡你明天有一点空间了那个想法又会不一样", "brk": "Hook类型: 痛点直击\n结构: 抛出内耗痛点 → 分析急于求成根源 → 给出区块拆解法\n为什么火: 精准切中女性追求高效却频频内耗的焦虑，提供实用解法\n改编角度: 结合女性保养，谈如何放下抗衰焦虑，把精力放在能掌控的护肤与内调上", "my": "很多时候你明明已经累到不行了，却还是停不下来。\n\n我知道，很多妈妈都这样，撑得太久，总觉得只要自己再快一点、再多做一点，家里和工作就能回到正轨。\n\n但我认为，人一急的时候，反而容易陷在内耗里。\n\n很多时候你把所有责任都扛在自己身上，一个人想解决所有问题，结果发现事情根本不是你一个人能控制的。\n\n这时候你越着急，心里的能量就消耗得越快，反而把自己困在原地。\n\n我现在遇到这种情况，会把事情分成不同的区块。\n\n第一步，先挑一件你自己一个人完全能够控制的小事来做。\n\n因为这个最简单，不需要等别人配合，你自己就能决定和完成。\n\n第二步，给大事情留出时间和空间，不要强求马上看到结果。\n\n很多时候，周围的人或者事情还没有准备好，你再去焦虑、再折磨自己也没有用，不如先放一放。\n\n第三步，试着允许自己慢下来，把注意力回到身体和呼吸上。\n\n我带着20年大健康行业的经验走过来，也经历过身体发出警讯的时候，我发现时间往往是最好的引导者。\n\n当你允许自己停下来、休息一下，第二天再回头看，原本卡住的想法可能就会变得不一样。\n\n很多姐妹找到我的时候，都是一边带着两个小孩，一边还要兼顾事业，分身乏术，每天都在赶时间。\n\n以前我也是这样，一周飞几个地方，甚至一天只吃一餐，总觉得停下来就是落后。\n\n但后来我发现，如果连自己的健康和状态都照顾不好，身边的一切其实很难真正变好。\n\n如果你也常常觉得很累、很想找回自己的节奏，我认为，可以从体验一次 Hers Spa 开始。\n\n这是专属于你的放松时间，价格在 RM50 到 RM600 之间，你可以先来感受一下。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep216", "bait": false, "type": "Video", "likes": 11863, "comments": 64, "er": 8.0, "followers": 149142, "date": "2026-10-08", "url": "https://www.instagram.com/p/DePSvzYgagx/", "video": true, "ratio": 0, "score": 8.08, "status": "未处理", "x": 3.8}, {"id": "DeHjA7fgbb3", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "千金難買早知道，人生沒有後悔藥\n\n#姐妹悄悄話 #sisterstalktalkshow #ep214", "transcript": "你付出一定要想清楚說因為你願意付出人家有沒有看見你有沒有得到回收這個都不是在應該的範圍內有是bonus 沒有是正常有的時候我們可以把這個以歷史為鑒那就可以以這個公共事件為鑒就是告訴我們even是一個王子他都可能失去再拿不回來的東西像我們這種凡人更是想清楚的時候要想得更清楚我們都不能認為自己應該要怎麼樣沒有應該即使你很付出人家如果看不見人家也沒有應該要看得出你的付出你付出一定要想清楚說因為你願意付出人家有沒有看見你有沒有得到回收這個都不是在應該的範圍內有是bonus 沒有是正常人生就是沒有後悔藥也沒有早知道所以你如果早知道當時你一期用心做選擇那你現在就知道說如果下一次我們還有機會再重新做選擇的時候要更謹慎的來選擇一下", "brk": "Hook类型: 痛点直击\n结构: 情感付出痛点 → 顶流王室案例 → 警醒普通女性\n为什么火: 借势热点解构情感付出，戳中女性在亲密关系中的失落共鸣。\n改编角度: 结合女性保养或身材管理，谈“自我投资绝不会背叛你，比讨好别人更靠谱”。", "my": "很多妈妈在家里撑得太久，总觉得只要自己付出得够多，家里人迟早会看见。\n\n很多人以为，只要把孩子照顾好、把家务全包揽，婚姻和生活就一定会往好的方向走。\n\n我认为，其实不是这样的。\n\n很多时候，你把所有时间都给了家庭，却忘了问问自己，这种付出是不是在消耗你自己。\n\n第一，每天给自己留十分钟。\n不要一睁眼就围着孩子和家务转。\n这十分钟只属于你自己。\n静静坐着喝杯水或者闭眼呼吸，练习觉察自己的情绪。\n这样做能帮神经系统慢下来，把注意力从紧绷的日常里抽离出来。\n\n第二，学着把期待放低。\n很多妈妈都这样，撑得太久，忘了照顾自己。\n你不需要把每件事都做到完美，也不需要满足所有人的期待。\n允许自己偶尔偷懒，允许事情不完美。\n这样做能减少内耗，把省下来的力气用来对自己好一点。\n\n第三，去参加一次线下的放松体验。\n如果一个人在家里总是觉得闷，不妨给自己安排一个下午。\n来 Hers Spa 试一试，让身体彻底放松下来。\n价格在 50 到 600 令吉之间。\n做完以后，整个人会觉得轻盈很多，找回久违的松弛感。\n\n我也经历过一边工作一边照顾孩子的日子，常常觉得自己快撑不下去了。\n以前总觉得咬咬牙就能过去，结果把自己的能量都耗尽了，每天都在内耗和委屈里。\n懂得停下来照顾自己以后，我才发现，当你的状态变好了，身边的一切也会跟着变好。\n\n如果你也觉得最近快撑不住了，可以先给自己一个机会。\n点进主页私信我，了解我们的引流活动和课程。\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep214", "bait": false, "type": "Video", "likes": 10301, "comments": 48, "er": 6.94, "followers": 149142, "date": "2026-10-05", "url": "https://www.instagram.com/p/DeHjA7fgbb3/", "video": true, "ratio": 0, "score": 7.0, "status": "未处理", "x": 3.3}, {"id": "DfZ3vUtAG3C", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "解決不了的事先好好睡一覺再說😝\n\n#姐妹悄悄話 #sisterstalktalkshow #ep220", "transcript": "憂慮很多但不要帶到明天但今天的憂慮今天就是反正明天就是會過去了你會不會過去對啊就是那個憂慮不要帶到明天因為明天又會有新的東西的存在所以我好像就蠻因為這一句話就是我就覺得反正今天有任何的問題It's fine 就是明天又是 brand new day然後你又可以重新起來有一個身體好的狀態去面臨跟解決這些問題其實它好像到後來就沒有什麼大不了所以你對於失敗跟挫折你沒有把它放在一個喔 這個跟羞愧我是跟丟臉我是跟面子跟自尊心我是跟成就感我覺得那個多多少少要很誠實的講一定還是會有一點點但我覺得就是你怎麼去看待你面子重要還是你自己個人更重要我覺得就是到最後你覺得面子真的有那麼重要嗎好像也還好就是你明天還是可以獲得很好所以就是那個點就會覺得好啦 我覺得我累積了這麼多的東西可能反正時間也會充膽我錯過的事情如果我願意證實它我覺得好像就不要讓它成為好像現在的你你就是還是要努力往前走不可能有一個人是永遠都是站在那個Long的頂尖上然後T or C他們永遠都是on the top它一定還是會有一天就是稍微的就是下來那個graph就是會一直up and down所以我覺得好像就是要接受這件事情心裡面就會比較好過一點", "brk": "Hook类型: 痛点直击\n结构: 抛出焦虑痛点 → 转变心态接纳情绪 → 释怀面子与挫折\n为什么火: 击中当代女性深夜焦虑精神内耗，松弛感金句引发强烈共鸣\n改编角度: 结合内服抗衰与作息管理，切入“睡好觉养好气色，再大的事明天再说”", "my": "我好累，但今晚又失眠了，你是不是也这样？\n\n很多妈妈觉得，照顾好孩子和家里才是对的，累了只能自己扛着。\n\n我认为，可以从一件小事开始，先让自己好好睡一觉。\n\n第一步，试着放下今天的内耗。把没做完的事留在今天，不用带到明天。因为明天又会有新的事情，今天过不去的事情，时间会慢慢沉淀。\n\n第二步，练习几分钟的呼吸觉察。闭上眼睛，把注意力回到身体上，感觉紧绷的肩膀慢慢放松。很多时候，身体比我们更需要休息。\n\n第三步，允许自己慢下来。我带着 20 年医美和大健康经验走过来，也经历过一边工作一边照顾三个孩子的日子，我发现没有谁是一直站在顶峰的。状态有起伏很正常，接受累了的自己，并不是一件丢脸的事。\n\n很多妈妈在这个阶段，常常为了照顾所有人的期待，把自己排在最后。\n\n以前我也是这样，总觉得自己还能撑，直到身体发出警讯，才发现如果连自己都照顾不好，根本没有力气去照顾别人。\n\n现在我学会了每天给自己留一点时间，通过简单的冥想和呼吸，找回平静的自己。\n\n如果你最近也觉得喘不过气，想找个地方好好放松，欢迎了解 Hers Spa。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep220", "bait": false, "type": "Video", "likes": 9183, "comments": 23, "er": 6.17, "followers": 149142, "date": "2026-11-06", "url": "https://www.instagram.com/p/DfZ3vUtAG3C/", "video": true, "ratio": 0, "score": 6.2, "status": "未处理", "x": 2.9}, {"id": "Dfhh9xcg9P_", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "關係就跟身體一樣，沒生病也可以定期保養！\n\n#姐妹悄悄話 #sisterstalktalkshow #ep220", "transcript": "你們是生小孩的父母嗎?那如果你們原生你們兩個人的關係都沒有很好的前提一下那底下的人怎麼會好呢?我跟宥宥聊啦我覺得可能因為我們的信仰我們很知道說那個在家庭裡面的優先順序所以我覺得優先順序永遠是夫妻所以我覺得夫妻我們永遠都是最照顧我們彼此的感受的然後我覺得再來可能就是小孩或者是我自己我就會可能調配一下可能這個季節可能是我我比較少是我但下一個季節可能是孩子對啊那我覺得現在的季節可能就是幼粉生永遠都是最大的他就是永遠都是第一名你們怎麼come to這樣子的一個我覺得信仰的確是一個很大的交道我們的一個方向但同時這樣我覺得你就算撇開信仰我覺得你們是生小孩的父母嗎?那如果你們原生你們兩個人的關係都沒有很好的前提下那底下的人怎麼會好呢?他用在一個公司的理念也是今天如果你的股東你CEO你跟你C level的人都沒有達成一個很好的一個互動的時候那你旗下的人其實慢慢就會被影響所以我覺得這個概念跟家庭是一模一樣的當你們夫妻關係在一個沒有很良好的溝通或者是一個跑得太快但你也沒有想要等另外一位的時候我覺得你的小孩其實很聰明就是他們很快就可以pick up到就是很敏感他們就會知道有哪一些地方是有問題的但卻他就會從你身上去看見你們在面對這種事情的時候有沒有極實性的去很好有效率健康的去解決這些事情當你開始發現最近有一點點off balance你有沒有什麼tips可以跟大家分享要怎麼樣趕快再把這個事情拉在同一個線上我們就是現在因為我可能之前去了婚禮智商我覺得其實是很有效的然後我也覺得婚禮智商大家可能都會覺得說我現在又沒事我跟他又沒問題或者是我也沒病我為什麼要去我覺得這個概念就好像是那你可能去感冒你感冒了或什麼你還是會去找一下醫生所以當你一美保養都可以啊一美保養所以我覺得這件事情去找智商好像不是要到一個很嚴重的問題你才去找我覺得有時候是一個很健康的傲人所以我覺得定期去做的話我覺得也會有一些好的引導來去教導你說應該要怎麼去溝通怎麼去做然後怎麼去處理一些危機狀況", "brk": "Hook类型: 痛点直击\n结构: 抛出家庭核心关系谬误 → 用公司运营类比 → 给出定期做婚姻咨询的解法\n为什么火: 用“夫妻关系是公司基石”的比喻点醒父母，打破“没病不用咨询”的误区\n改编角度: 结合内服保养理念，把“定期婚姻咨询”转化为“定期内调抗衰，关爱自己”", "my": "每天忙着照顾家里和工作，你有多久没有好好看看镜子里的自己了？\n\n很多妈妈都觉得，只要把孩子和家里照顾好，夫妻关系自然就会好。\n\n但我认为，当两个人的关系在内耗，家里的人其实都会被默默影响。\n\n其实，照顾好自己的状态，可以从三个小步骤开始。\n\n第一步，每天给自己留十分钟。\n安静地坐一会儿，听听自己的呼吸，觉察一下今天的情绪在哪里。\n这样做能让紧绷的神经放松下来，找回一点属于自己的空间。\n\n第二步，试着做一次温和的身体放松。\n预约一次 Hers Spa，或者做一次非侵入式的医美肌肤保养。\n花一点时间照顾外在和身体，就像给手机充电一样，让自己重新饱满起来。\n\n第三步，找专业的人聊聊心里话。\n当夫妻关系或者情绪卡住的时候，去进行一次一对一咨询催眠。\n价格在 RM150 到 RM300 之间，花一点时间把心里的话说出来，学习怎么更好地面对自己。\n\n我以前也经常把自己排在最后，每天像陀螺一样转，觉得自己撑一下就过去了。\n但后来我发现，如果连自己的状态都照顾不好，身边的人其实也会跟着累。\n现在我学会了先把内在和外在照顾好，整个人轻松很多，也能更温柔地对待家里的一切。\n\n如果你也想找回那个放松的自己，可以私信我了解更多详情。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep220", "bait": false, "type": "Video", "likes": 8089, "comments": 19, "er": 5.44, "followers": 149142, "date": "2026-11-09", "url": "https://www.instagram.com/p/Dfhh9xcg9P_/", "video": true, "ratio": 0, "score": 5.46, "status": "未处理", "x": 2.6}, {"id": "Ddbm-6hg96c", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "不要以為只有你亂，很多人的人生其實也很亂，只是我們從外面看不到而已🤭\n\n#姐妹悄悄話 #sisterstalktalkshow #ep213", "transcript": "當你很迷茫或是你覺得為什麼他可以我不可以你都不要懷疑自己你們現在如果很迷茫Don't worry因為我們也是所以他這個是一個always學習我現在我現在一直要很有意識的跟我們的聽眾鼓勵當你很迷茫或是你覺得為什麼他可以我不可以你都不要懷疑自己因為人生我後來發現真的很亂你現在不亂人生很亂就是a lot of messy decision就是說因為我們老是以前的我個年輕會覺得說我應該有答案了我已經30歲了我就是比如說孩子什麼家庭什麼工作就是這樣子每一個都分類好了就這樣子囉好了棒棒我以後再也不會有面對抉擇的時候了你還是會有所以不要認為說你現在一定要有答案但是你一定要認真思考這個是很重要的對啦有的時候沒有答案可能也就是一個現在最好的答案因為有的事情是沒有答案的反正做決定真的要保持一個冷靜的心然後就是要想一層一層像撥羊沖羊", "brk": "Hook类型: 身份共鸣\n结构: 抛出迷茫痛点 → 坦白自己也很乱 → 给出接纳无答案的心态建议\n为什么火: 用过来人的真实松弛感打破30岁必须完美的焦虑，击中女性精神内耗\n改编角度: 结合女性养生与内调，讲述不必追求完美生活方式，接纳身体暂时的紊乱也是一种美", "my": "每天到了深夜，看着熟睡的孩子，你是不是也会突然觉得，自己的人生怎么好像卡住了？\n\n很多姐妹常跟我说，觉得自己快三十五岁了，应该把家庭和事业都安排得井井有条，如果现在还有迷茫，是不是自己哪里做错了。\n\n我认为，其实你真的不用太苛责自己。\n\n人生本来就不是一条笔直的轨道，很多时候，我们一边照顾着家里，一边在职场上撑着，生活难免会有让人觉得喘不过气的时候。\n\n我们可以通过三个简单的方法，慢慢把自己的节奏找回来。\n\n第一个方法，每天给自己留十分钟的空白时间。\n\n你可以把手机放在一边，闭上眼睛，什么都不用想。\n\n这十分钟不是浪费，而是让你的身体和情绪有一个真正停下来休息的空间。\n\n第二个方法，试着把心里的重担一层一层剥开。\n\n当觉得事情很多很杂的时候，拿出一张纸，把那些让你焦虑的事情一件一件写下来。\n\n很多时候，我们是被脑海里的想像吓到了，当它们变成字，你会发现其实没有那么难。\n\n第三个方法，练习温柔地和自己对话。\n\n当心里出现自我怀疑的声音时，试着像对待一个好朋友那样对你自己说，没关系的，你已经做得够好了。\n\n很多妈妈都这样，总是把所有人排在自己前面，撑得太久，忘了照顾自己。\n\n我以前也经历过这样的阶段，每天像个陀螺一样转个不停，直到身体发出警讯，我才停下来重新思考。\n\n其实，人生没有标准答案，有时候，允许自己现在的迷茫，就是当下最好的答案。\n\n如果你也想给自己一个放松的空间，从认识自己开始，欢迎来了解我们的Hers Spa或是一对一咨询。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep213", "bait": false, "type": "Video", "likes": 7375, "comments": 33, "er": 4.97, "followers": 149142, "date": "2026-09-18", "url": "https://www.instagram.com/p/Ddbm-6hg96c/", "video": true, "ratio": 0, "score": 5.01, "status": "未处理", "x": 2.3}, {"id": "DfPiD5yAneH", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "這部大家有追嗎？\n\n#姐妹悄悄話 #sisterstalktalkshow #ep218", "transcript": "有些人心他就是不正沒有辦法所以他這個裡面有個名也叫能好好活下來就好了藍霜如果真的很好看你這次要掛保證的吧因為我反正我叫我反正我叫我媽看我媽還說我不要看這個後來他看完第四你要前面兩集再介紹後面的故事他有一點悲傷因為太悲慘了太可憐了可是也是很精彩你忍過去之後就很好看然後這個故事告你真的壞人好多然後裡面講了一個壞人很多你先給我鎖感是不是他壞人好多真的我們有的時候你太善良或是你太不想看到壞人的事實你就會騙你自己說世界上沒有人這麼壞但是你真的遇到的Oh my god 真的有壞人有些人心他就是不正沒有辦法所以他這個裡面有個名也叫能好好活下來就好了真的我們現在能好好活下來就好了有啊你以為我在想說你有一個朋友就很久沒看到他我們就想說他怎麼樣我就說沒關係只要他活著他怎樣都好", "brk": "Hook类型: 痛点直击\n结构: 影视热点引入 → 善良盲区揭秘 → 活下来就好的共鸣感叹\n为什么火: 借热播剧戳中现代女性面对复杂人性与生存压力的情感共鸣\n改编角度: 结合女性保养与心理健康，聊聊拒绝精神内耗、活得通透的自我关爱日常", "my": "每天带着两个孩子，还要兼顾工作和家庭，你是不是觉得只要自己再多撑一下，日子就能过去？\n\n很多姐妹以为，只要把所有事情都扛下来，把家里照顾好，内心的疲惫就会自己消失。\n\n但其实不是这样，很多时候，我们不是不够努力，而是把自己绷得太紧了。\n\n我认为，可以从一件小事开始，找回自己的呼吸。\n\n第一步，每天给自己留十分钟的安静时间。\n\n什么都不要想，只是坐下来，感受自己的呼吸。\n\n这样做可以帮紧绷的神经放松下来，把注意力从繁杂的家务和工作里收回来。\n\n第二步，试着做一次简单的自我觉察。\n\n拿出一张纸，写下你今天觉得最累、最委屈的时刻，不用去评判它。\n\n这样做能看清自己到底在消耗什么，而不是糊里糊涂地继续内耗。\n\n第三步，给自己一次温柔的体验。\n\n你可以来 Hers Spa 感受一次放松，把照顾别人的心，稍微分一点给自己。\n\n价格从 RM50 到 RM600 不等，根据你的需要选择。\n\n做完之后，你会发现身体没有那么沉重了，整个人也轻盈了许多。\n\n以前我也是这样，一边上班，一边照顾家里，经常出差，每天像个陀螺一样转个不停，撑得太久，忘了照顾自己，直到身体发出警讯，我才停下来。\n\n用对方法以后，我开始学会照顾自己，也有了空间去陪伴和支持身边的姐妹。\n\n如果你也觉得累了，想找回自己的状态，可以私信我，或者点击主页了解 Hers 的引流活动。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep218", "bait": false, "type": "Video", "likes": 3126, "comments": 39, "er": 2.12, "followers": 149142, "date": "2026-11-02", "url": "https://www.instagram.com/p/DfPiD5yAneH/", "video": true, "ratio": 0, "score": 2.17, "status": "未处理", "x": 1.0}, {"id": "Dd_ziTcAVFA", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "即使有些選擇錯過了，也要有信心會遇見新的路\n\n#姐妹悄悄話 #sisterstalktalkshow #ep214", "transcript": "沒有人是不能被取代的每一個人都是可以被取代離開了一個位置之後你不可能認為這些光環都還依然存在而且你走也不可能一定會的來對啊譬如說今天如果有一個工作我們決定我們不做這個生前的機會我們在老闆一直勸說你生前你生前然後可能你也想生前可是因為你選擇了家庭因為如果你生前因為很多事情你要做決定你不可能什麼都要有到最好你不可能又想要這樣子生前然後你家庭又要很完整那可能一定會有一個這樣子嘛會高低那你還是選擇謝介亂可能家人需要你你選擇家庭那你這個生前機會就會降下你的事業的地位還有你的一些一些influence你的關係也是會降低那這個降低了以後你只能在想說好等我這邊處理到一個段落了那我再從這個我降低的地方再重新爬到我十年前可能有的機會所以你爬不回去了可是That's life不能說那我不生前那你等我等我自己最不弄完這邊然後我再回去沒有人是不能被取代的每一個人都是可以被取代的唯一的關係不能被取代的就是女兒父母孩子", "brk": "Hook类型: 身份共鸣\n结构: 戳破职场幻觉 → 讲述牺牲与权衡 → 总结唯一不可替代\n为什么火: 直面职场女性在事业与家庭抉择中的残酷现实，引发深刻共鸣。\n改编角度: 探讨女性在追求Wellness平衡时，如何接受生活的不完美与身份转变。", "my": "很多妈妈常说，我好像在家庭和事业之间，把自己弄丢了。\n\n你是不是以为，只要咬牙撑下去，就能把工作和家庭照顾得十全十美？\n其实不是，很多时候，我们只是在用身体和情绪的透支，去满足所有人的期待。\n\n我认为，可以从三个小步骤开始，练习重新照顾自己。\n第一步，每天留出十分钟的空白时间。什么都不做，只是闭上眼睛，感受自己的呼吸。这能帮我们的神经系统慢慢放松下来，不再一直处在紧绷的状态里。\n第二步，学习温和地设立界限。把那些不属于你的责任放回原处，试着每天拒绝一件消耗你的小事。这能让你的精力回到自己身上，不再被琐事掏空。\n第三步，试着走进 Hers Spa 放松一下。通过温和的身体护理，把累积的紧绷和疲惫卸下来。很多学员体验完都会说，终于找回了一点身体的轻盈感。\n\n以前的我，总觉得必须把所有角色都做到完美，常常一边上班一边照顾三个孩子，把自己撑到极限却不知道能跟谁说。\n学会停下来照顾自己以后，我发现，当你的内在开始有空间，生活真的会慢慢变得不一样。\n\n如果不需要再满足任何人的期待，你真正想要的生活是什么样子？\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep214", "bait": false, "type": "Video", "likes": 3145, "comments": 17, "er": 2.12, "followers": 149142, "date": "2026-10-02", "url": "https://www.instagram.com/p/Dd_ziTcAVFA/", "video": true, "ratio": 0, "score": 2.14, "status": "未处理", "x": 1.0}, {"id": "DeZjkRGgZgA", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "真正的清醒從不再怪別人開始\n\n#姐妹悄悄話 #sisterstalktalkshow #ep216", "transcript": "你可以說這是命運但是你的認知要真的能夠接受這個是你自己造成的命運沒有人替你背負你的命運也沒有人可以拯救你中年最大的重點就是意識到自己必須對自己的幸福負起絕對的責任就只有你可以給你自己幸福你不要覺得說我靠了這個男人他就給你幸福我爸媽會給我一輩子的幸福我的小孩以後要養我一輩子沒有了你了解的只有自己對 即使他們想可是他們的幸福的定義跟你的幸福定義不一樣即使這個男人或是你爸媽或是你孩子想要承擔你的幸福他們能為你做的是在他們的範圍內能不能夠滿足你只要看你自己不是說我要把我自己塞到他的那個幸福盒子裡面裝起來這樣子我就幸福了因為你的感受還是你最真實的所以終究是你要靠你自己很多人會用命運這個東西來解釋出我的走向說他就是命就是命只能這樣子我認命了對 這樣子算了我就是很誰我認命了順其自然沒有不好傳到橋頭自然子沒有不好但是你的意識你的認知一定要搞清楚你可以說這是命運但是你的認知要真的能夠接受這個是你自己造成的命運那再來就是問自己說有什麼痛苦或遺憾是我一直怪罪在外在的環境或是他人但事實上應該是我自己要負責任的很多你的不成功你對自己的不滿譬如說身體管理好了你覺得你自己很胖你不能怪罪在食物或是什麼我的工作我的作息那是你自己的選擇但是你吃了對你沒有把你自己控制住對不對所以這個痛苦遺憾是回到自己而不是因為他人", "brk": "Hook类型: 痛点直击\n结构: 戳破依赖外力幻想 → 强调自我觉醒责任 → 结合身材管理落地\n为什么火: 精准击碎中年女性的情感依赖与宿命论，提供极具力量感的精神独立觉醒。\n改编角度: 结合女性抗衰与身材管理，痛陈“别把健康寄托在医美或伴侣上，身体掌控权在自己”。", "my": "很多妈妈每天忙到深夜，其实心里最清楚，自己已经很久没有真正放松过了。\n\n我看到很多姐妹，总觉得只要把孩子照顾好、把家里打理妥当，幸福就会自然而然来敲门。\n\n大家以为，只要默默忍耐、把所有的委屈都咽下去，日子总有一天会变好。\n\n但很多时候，我们其实是在用忙碌来逃避面对自己的真实感受。\n\n我认为，可以从一件小事开始，去看看自己心里真正想要的是什么。\n\n第一步，试着每天留出十分钟给自己。不用去想家里的琐事，也不用管工作上的烦恼，只是静静地坐着，或者听一段轻松的音频，去感受自己的呼吸。这样做是因为，我们的身体和情绪需要一个缓冲的空间，只有先安顿好自己，才不会一直处在紧绷的状态里。\n\n第二步，觉察一下那些让你觉得疲惫的习惯。比如总是熬夜刷手机，或者明明很累却不好意思拒绝别人的请求。你可以问问自己，这些选择真的是为了自己好吗？看清这一点之后，试着每天减少一件消耗你的事情，让生活慢慢恢复平衡。\n\n第三步，学着在镜子前面好好看一看自己。很多妈妈把心思分给了身边的每一个人，却唯独忘了照顾自己的外在和内心。你可以花一点时间涂一涂护肤品，或者做一次温和的身体管理，去重新找回那种被自己疼爱的感觉。\n\n我以前也是这样，一边上班一边照顾三个孩子，常常觉得累得透不过气，把所有的期待都放在别人身上，希望家人能多理解我一点。\n\n直到身体和情绪发出警讯，我才慢慢明白，期待别人来给自己幸福，其实是一件很消耗的事情。\n\n当我开始学着每天花一点时间通过冥想和自我觉察来整理思绪，我发现内心的内耗变少了，整个人也轻松了很多。\n\n如果你也常常觉得很累，不知道该从哪里开始改变，可以先来了解一下 Hers 的冥想音药课程，或者通过私信联系我们，让我们陪你一起，慢慢把那个温柔而坚定的自己找回来。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep216", "bait": false, "type": "Video", "likes": 3114, "comments": 21, "er": 2.1, "followers": 149142, "date": "2026-10-12", "url": "https://www.instagram.com/p/DeZjkRGgZgA/", "video": true, "ratio": 0, "score": 2.13, "status": "未处理", "x": 1.0}, {"id": "Ddos1qAgVGP", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "有些事目前想不通，可能只是還沒走到\n\n#姐妹悄悄話 #sisterstalktalkshow #ep213", "transcript": "傳到橋頭自然直嗎然後我說這我要打哪個船沒關係不要管他了傳到橋頭自然直以前我聽到這個話我會憤怒的氣你知道嗎口圖白目說Mother你講這個話你船也要把它開到某一個方向他才能夠直吧你船在波浪上你總是波浪也有一天會平靜就等他自然平靜完全是玄學了你知道嗎他我每次我聽到這個我就會我卻覺得很氣我啞公我說你怎麼可以身為一個母親我跟你討論事情你跟我講這種話什麼叫做傳到橋頭那我的人生所有決定就是傳到橋頭自然直嗎傳到橋頭自然直嗎然後我說這我要打哪個船自然會有答案Oh my God可是後來你發現你常常上很多不同的船然後在漂泊在海中的時候你有的時候也不得已你就是要等到他到一個橋頭他自己會有答案所以你的焦慮並不是沒有答案而是你只想找到一個唯一的答案但很多事情他沒有就像你小孩的選擇一樣沒有唯一的答案A跟B都可以但你一定要比出A跟B怎麼樣哪個比較好那你就會很辛苦但其實沒有關係兩條路都可以走他最後都會到同個地方去只是風景不一樣而已", "brk": "Hook类型: 痛点直击\n结构: 吐槽传统安慰的话 → 迷茫漂泊的体悟 → 接纳人生没有唯一答案\n为什么火: 精准引发当代女性对生活不确定性的焦虑共鸣与情绪释怀\n改编角度: 探讨女性追求完美保养与自律的焦虑，传递接纳不完美状态的松弛感美学", "my": "很多妈妈觉得，只要再撑一下，生活总会变好的，对吗？\n\n很多人以为，只要把时间排得满满的，把家里和工作都照顾到完美，焦虑就会消失。\n\n其实不是，真正的累，是你一边在心里怪自己不够好，一边又不知道还能怎么做。\n\n我认为，可以从三个温和的小改变开始。\n\n第一个方法，每天给自己留十分钟的安静时间。\n\n闭上眼睛，只是呼吸，什么都不用想，也不用去解决任何问题。\n\n这样做的目的是让紧绷的身体先放松下来，把注意力从别人身上拿回来。\n\n做完之后，你会觉得肩膀没有那么沉了。\n\n第二个方法，试着写下今天让你觉得委屈的一件小事。\n\n不要去评判自己做得对不对，只是单纯地看见它。\n\n很多时候，我们对自己太严格了，允许自己难过一下，也是一种照顾。\n\n这样能帮我们把心里积压的情绪慢慢疏导出来。\n\n第三个方法，参加一次Hers Spa或者线下的沙龙会。\n\n在这里，不需要扮演坚强的妈妈，只需要坐下来听听其他女性的故事。\n\n价格在 RM50 到 RM600 之间，是很轻松就能踏出的一步。\n\n体验过之后，你会发现原来很多妈妈都和你一样，你并不孤单。\n\n我以前也是这样，一边上班，一边照顾三个孩子，经常出差，每天像陀螺一样转个不停，总觉得只要再努力一点，生活就会有答案。\n\n直到身体发出警讯，我才停下来，重新思考什么才是真正重要的。\n\n用对方法照顾自己以后，我开始学会听见内心的声音，不再把所有责任都扛在自己身上。\n\n如果你现在也觉得很累，不知道可以跟谁说，可以先来了解一下我们的一对一咨询催眠。\n\n让我们一起，找回那个懂得照顾自己的你。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep213", "bait": false, "type": "Video", "likes": 2856, "comments": 30, "er": 1.94, "followers": 149142, "date": "2026-09-23", "url": "https://www.instagram.com/p/Ddos1qAgVGP/", "video": true, "ratio": 0, "score": 1.98, "status": "未处理", "x": 0.9}, {"id": "DfUv8y5g_52", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "趕快記起來📝分享給你身旁需要安的朋友🤗\n\n#姐妹悄悄話 #sisterstalktalkshow #ep218", "transcript": "我告訴你要怎麼安你知道嗎安泰瑞要安出一個大三角連你朋友都說你是不是犯泰瑞我打給我說你怎麼了你是不是犯泰瑞我聽著他說因為一大堆鳥事我說真的真的好多人我心裡受傷了心裡受傷了有沒有一個朋友吃飯然後就說他就這樣摸摸我真的你好問你一個事我說幹嘛他說你那個Malady是不是犯泰瑞我就這樣你知道多少人打給我跟我說沒有你是不是留犯泰瑞我說因為我沒有想到犯泰瑞我說你怎麼知道我就跟你講過我媽有幫我去安泰瑞在年初可是年初所以你們可小兒子我安了以後還這樣子你可小兒子如果沒有安的話是怎麼辦我疏忽了你知道我同學今年犯泰瑞我跟他怎麼說嗎不是他也疏嘛我告訴你要怎麼安你知道嗎怎麼安安泰瑞要安出一個大三角什麼意思大三角譬如說你在基隆我媽好像是給我點燈基隆一個廟你安了一個泰瑞Lady可能到花蓮找個大道你怎麼不早點告訴我你現在很嚇到你已經快凍字了你還講這個你知道我同學你知道他多認知他說我電話給你講我在新竹弄了一個然後我去了松山我說那另外一個他今年有什麼另外一角去哪裡你知道嗎他說另外一個不好意思他直接出海他到大陸弄什麼舟那裡就那個三角形有多大他今年好的不得了我說你不是犯泰瑞他說我今年還滿好的他是嘴硬沒有因為今年的活馬聯合他公司賺了非常非常多的錢他說的數字是", "brk": "Hook类型: 痛点直击\n结构: 抛出倒霉现状 → 分享玄学化解法 → 对比验证效果\n为什么火: 借势大众对运势的焦虑，用夸张的“大三角安太岁”化解法制造戏剧性与好奇心。\n改编角度: 结合女性压力与情绪内耗，推出内调养生或精致美学方案作为现代人的“转运指南”。", "my": "每天都有很多妈妈对我说，我真的撑不下去了。\n\n很多时候，我们总以为只要再坚持一下，把家里照顾好，把工作处理完，状态就会变好。\n\n我认为，并不是你不够努力，而是你把所有人的需求都排在前面，唯独把自己弄丢了。\n\n第一步，试着每天留出十分钟给自己。不用说话，不用处理任何事情，只是闭上眼睛，去听听自己的呼吸。这个方法不需要任何基础，你可以在任何一个安静的角落开始，慢慢把散掉的心神收回来。\n\n第二步，练习觉察自己的身体。当肩膀发酸、胸口发闷的时候，别急着否定自己。停下来，手放在胸口，告诉自己，我现在的累是真的，我允许自己现在不好。\n\n第三步，试着走进 Hers Spa，或者参加一次线下的沙龙会。在这里，我们不谈工作，不聊家庭，只是单纯地做一次身体的放松。花上 50 到 600 马币，让自己在专业的照顾里，重新找回身体的松弛感。\n\n我也经历过一边上班一边照顾家庭、忙到连饭都顾不上的日子，那种整天在内耗里打转的委屈，我非常懂。\n\n以前我总觉得，只要咬牙坚持，生活就会变好，结果却是身体先发出了警讯。\n\n现在我知道，当自己开始学着照顾自己，内心的能量才能慢慢充盈起来。\n\n如果你也觉得这段时间特别累，想找个地方喘口气，可以了解一下 Hers Spa 的体验。希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep218", "bait": false, "type": "Video", "likes": 2604, "comments": 30, "er": 1.77, "followers": 149142, "date": "2026-11-04", "url": "https://www.instagram.com/p/DfUv8y5g_52/", "video": true, "ratio": 0, "score": 1.81, "status": "未处理", "x": 0.8}, {"id": "DfAEnrhA8vW", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "現在有什麼事能讓你感到快樂？\n\n#姐妹悄悄話 #sisterstalktalkshow #ep218", "transcript": "有的時候外面的世界變得你覺得有一點複雜的時候回到你自己的小窩窩也很好這幾年我也覺得我開始比較及時行了我覺得你是你線條有變比較軟因為我就覺得他以前對四個的追求非常的剛好現在還好因為我不是跟大家講過嗎他現在做工作只是為了要買GD的周邊商品他只是為了要能夠fun他這個GD的obsession因為我後來就發現人生就是有些事情是我做不到的我上次講過就是你可以知道說就是想得不可得就是不可得當你把這事情想透了之後那我幹嘛為難我自己就是不可能了那我就覺得在我的放過自己吧在我可以的區域裡面找到樂趣我就活得很開心譬如說我真的很追星很SAD的時候我就會把他在2025年媽媽的演出再叫出來開始2024年開始他在想說那看十年前的好就是這樣會覺得他滿開心的就是找到一些快樂的方式要不然你會覺得好多事情壓力好大但其實找到快樂的方法其實也沒有那麼難有的時候外面的世界變得你覺得有點複雜的時候你回到你自己的小窩窩也很好有的時候不是說回到小窩窩就好像沒用或是我們好像失敗有的時候是需要回到一個小窩窩的來去能讓自己療癒我那天我的朋友講了一句話讓我很感動馬上噴淚然後我就說你最近的類型蠻發達沒有我本來就是他很容易就會流眼淚他就跟我講說你前面自己年輕人真的太忙了而且太多事情要處理了他說你一下子人生這麼大的變化你自己要承擔很多事然後你又硬撐他說所以今年這樣子的調整或許這是一個提醒所有發生你認為這些事情都是好事因為它是一個提醒提醒你自己你一定要稍微花一點時間治癒吧他說你前面自己年發生的事情你都沒有真的療傷他說其實你的心是有傷的只是因為你沒辦法想因為你要弄小孩你要工作你要有很多責任所以你要把責任都扛起來可是扛起來你下面那個洞是越來越大的他那你花一點時間把這個洞縫起來也在重新出發也很好", "brk": "Hook类型: 痛点直击\n结构: 现实压力大 → 接纳无能为力/追星治愈 → 朋友点醒需要疗伤\n为什么火: 戳中中年女性高压下的精神内耗，提供“放过自己”的情绪价值。\n改编角度: 结合女性养生，探讨如何通过日常悦己和小仪式感来缝合生活带来的隐形心灵创伤。", "my": "每天回到家推开门那一刻，你是不是只想坐在沙发上发呆，一句话都不想说？\n\n很多人以为，只要把工作和家里的大小事都安排妥当，自己就能慢慢放松下来。\n\n其实不是这样，很多妈妈都这样，撑得太久，忘了照顾自己，心里的累根本无处诉说。\n\n我认为，可以从一件小事开始，找回自己的呼吸。\n\n每天花十分钟，不看手机，只是闭上眼睛，听着呼吸声，感受身体慢慢松开。\n\n你可以试着泡个温水澡，把门关上，让热水带走这一整天的紧绷。\n\n或者找一个安静的角落，拿出一张纸写下今天让你觉得感恩的三件小事，哪怕只是喝到一杯热咖啡。\n\n很多妈妈都这样，撑得太久，忘了照顾自己，把所有人的需求都排在自己前面。\n\n我以前也是这样，每天赶时间，一边工作一边照顾家里，常常觉得自己快要撑不住了，却不知道可以跟谁说。\n\n后来我慢慢学会停下来，当身体和情绪发出警讯时，回到自己的节奏里，重新认识自己，照顾自己的内心。\n\n如果你也常常觉得好累，想找个地方重新把心里的自己找回来，可以先从了解Hers的一对一咨询开始，私信我聊聊。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep218", "bait": false, "type": "Video", "likes": 2547, "comments": 20, "er": 1.72, "followers": 149142, "date": "2026-10-27", "url": "https://www.instagram.com/p/DfAEnrhA8vW/", "video": true, "ratio": 0, "score": 1.75, "status": "未处理", "x": 0.8}, {"id": "Dd34lk5Acc6", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "皇室又出事了！小倆口決定回英我們當然也不缺席🤭\n\n#姐妹悄悄話 #sisterstalktalkshow #ep214", "transcript": "在這個世界上沒有人是絕對的受害者因為皇室不給我 security 我的孩子沒辦法上學因為我們被危害了你不是 victim 我到現在我六年後我還在跟大家講同樣的事情雖然這六年當然發生了很多不同的人生的變化我自己也經歷了很多即使我經歷了很多我還是要跟大家講在這個世界上沒有人是絕對的受害者你今天會承受的所有事情你都必須要自己付出責任包含我在內 包含任何人在內那你今天 Harry 跟 Meghan 誰告訴你們你們要的得不到 墮墮角說我是受害者 因為我是黑人我是因為我是老二所以你們這樣子打壓我們你以為你沒有付出啊但我不認為他們賺不到錢但我就不應該再靠講一些以前家裡的隱私來賺錢應該還是有新的方法比如說 最差你就再回去演戲他騙頭不是蠻高的嗎有時候他現在要回去英國演一個所以我常常在想這個問題到底是 Harry 還是 Meghan我本來是覺得這個問題是 MeghanMeghan 自己就是一讀行這樣把它帶回來他老公很愛他我後來發現可能 Harry 有很大的問題因為 Meghan 畢竟是嫁給 Harry所以我覺得 Harry 他在做決定跟在帶領這個家庭他自己的小家庭的思維他可能也有一些缺陷那 Meghan 可能也沒辦法因為 Meghan 我覺得他是願意工作的我覺得他們是混在一塊彼此互相牽制把自己放到這樣的一個境地裡面", "brk": "Hook类型: 身份共鸣与八卦热点切入\n结构: 抛出名人受害者心态争议 → 分析梅根与哈里性格与责任 → 总结两人互相牵制现状\n为什么火: 借势王室八卦热点，输出犀利独立观点引发女性共鸣与站队讨论\n改编角度: 结合女性自我成长，探讨女性在亲密关系与事业中如何摆脱受害者心态并独立赚钱", "my": "每天带着两个孩子，忙到连坐下来喝杯温水的时间都没有，你是不是也觉得，自己好像被困在了这个家里？\n\n很多姐妹常跟我说，都是因为家里人不够体谅，因为生活压力太大，才会把自己逼成现在这个样子。\n\n我也曾经这样过，以为只要再多撑一下，生活就会变好。\n\n但其实，一直把自己放在受害者的位置上，并不会让现状变好，反而会让我们一直在消耗自己的能量。\n\n我认为，可以从三个小改变开始，慢慢把力量拿回来。\n\n第一个是每天花五分钟静静呼吸。\n找一个舒服的角落坐下来，闭上眼睛，把注意力放回自己的呼吸上。\n这样做能帮助放松紧绷的神经，把脑子里杂乱的思绪先放一放。\n每次花五分钟，你就能感觉到身体慢慢松开了。\n\n第二个是每天写下三件值得感谢的小事。\n不要想得太大，可以是一杯温水，或者孩子今天对你笑了一下。\n这样做能帮我们把注意力从那些消耗能量的事情上移开，看到生活里其实还有很多美好的部分。\n哪怕只有几分钟，也能找回一点内心的平静。\n\n第三个是试着做一次一对一的咨询催眠。\n在安全温和的空间里，由我陪着你，去看看那些一直拉扯着你的内耗到底是什么。\n这个咨询的价格是 RM150 到 RM300 之间。\n做完之后，你会发现原来很多事情都可以有不同的选择。\n\n很多妈妈都跟我说，以前总觉得为了家庭必须牺牲自己，每天活在委屈和内耗里，不知道该怎么办。\n\n但学会照顾自己、重新认识自己之后，整个人变得轻松了，和家里人的关系也慢慢变温和了。\n\n如果你也想开始改变，可以私信我了解一对一咨询催眠，让我们一起，把那个值得被爱的自己找回来。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep214", "bait": false, "type": "Video", "likes": 2244, "comments": 25, "er": 1.52, "followers": 149142, "date": "2026-09-29", "url": "https://www.instagram.com/p/Dd34lk5Acc6/", "video": true, "ratio": 0, "score": 1.55, "status": "未处理", "x": 0.7}, {"id": "DercNBbgfqB", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "sisterstalktalkshow", "caption": "你了解真實的自己嗎？\n\n#姐妹悄悄話 #sisterstalktalkshow #ep216", "transcript": "我們每一個人身上都有 ugly 的意面你要怎麼跟你的 ugly 的意面共處那現在我們前半生被我們自己否定的一些情緒我們否定跟壓抑 認為不夠好的特質例如憤怒 脆弱 自私 野心前半生我都不能夠承認我自己有野心我覺得有野心是個 like a 髒話我一個女孩子我怎麼可以承認我有 ambition 我有野心野心好像變成一個 like a 好像很那個現在我就怎麼樣 it is 你今天是什麼你的身上有沒有野心有 你的身上有沒有自私有你的身上會不會有脆弱 broken 有你的身上有沒有憤怒 很氣的時候有我們每一個人身上都有 ugly 的意面你要怎麼跟你的 ugly 的意面共處 不容易不容易 有時候就會覺得怎麼會這樣子就是你一定知道自己有一些缺陷人很難看到自己的缺陷我們總是會怪別人都不是自己的錯因為我們當受害者比較容易我們只有委屈 我們並沒有錯比較容易但其實這不是全面我覺得到了中年的意思就是說你真的要我們不要講中年到了成熟的人格的走向的時候你真的要能夠很全面性的直面自己", "brk": "Hook类型: 痛点直击\n结构: 抛出阴暗面概念 → 自我觉察与接纳 → 呼吁直面不完美\n为什么火: 直面女性野心与脆弱的阴暗面，打破完美人设引发深度共鸣\n改编角度: 探讨女性如何接纳身体和情绪的不完美，实现内在的松弛与Wellness", "my": "很多妈妈总觉得，自己心里那些疲惫、委屈和偶尔冒出来的坏脾气，是不应该有的。\n\n大家以为，当妈妈就该永远温柔、永远有耐心，不能有半点情绪，不能觉得累，更不能有自己的脾气。\n\n我认为，并不是这样的。很多妈妈都这样，撑得太久，忘了照顾自己，那些被你压在心底的委屈，其实只是在提醒你，该停下来看一看自己了。\n\n我们可以从三个小地方开始，试着重新找回自己的节奏。\n\n第一步，试着允许自己有情绪。当觉得累、觉得烦的时候，不要急着责怪自己，先对自己说一句，我现在真的很累，这是很正常的。\n\n第二步，每天给自己留十分钟的安静时间。不用去做什么特别的事，只是静静地坐一会儿，听听自己的呼吸，把注意力从家里的大小事收回到自己身上。\n\n第三步，试着开始练习向内觉察。当情绪上来的时候，试着去看看它背后是什么，是太久没有好好休息，还是承担了太多不属于自己的责任。\n\n以前的我也总是这样，一边上班，一边照顾家里，常常觉得自己不够好，把所有责任都揽在自己身上，每天都在内耗里打转。\n\n直到身体和情绪发出警讯，我才慢慢明白，如果不先学会照顾好自己，我们给出去的爱也总是带着疲惫的。\n\n如果你也常常觉得好累，想找一个地方好好放松、重新认识自己，可以私信我了解Hers Spa或是我们的冥想音药课程。\n\n希望能帮到大家。", "tags": "姐妹悄悄話, sisterstalktalkshow, ep216", "bait": false, "type": "Video", "likes": 2038, "comments": 15, "er": 1.38, "followers": 149142, "date": "2026-10-19", "url": "https://www.instagram.com/p/DercNBbgfqB/", "video": true, "ratio": 0, "score": 1.4, "status": "未处理", "x": 0.7}, {"id": "DeZL0LhlJFp", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "真正的影響力，不是妳說服了多少人，而是多少人願意相信妳。💬 留言「飛」，讓真誠，成為妳最有力量的影響力。\n\n演了數十年戲，王琄走進過無數角色的人生。她慢慢發現，一個角色真正能打動觀眾，不是因為演員「演得夠像」，而是表演者願意先理解：這個人為什麼這樣想？為什麼做出這個選擇？她真正害怕、在意的又是什麼？\n\n而走下舞台，人與人的相處其實也是如此。\n\n我們不一定需要成為最會說話、最有聲量的那個人，真正讓一段關係靠近的，往往是願意傾聽、理解彼此的差異，也用真誠回應眼前的人。\n\n2027《姐帶妳飛》邀請 三屆金鐘獎演員、導演、作家 王琄，從數十年的表演與人生經驗出發，陪妳練習透過理解角色、讀懂人心，以真誠來建立關係，同時建立起屬於自己的影響力。\n\n💬 留言「飛」，讓我們一起學習，如何讓”真誠”，成為妳最有能量的影響力。", "transcript": "", "brk": "Hook类型: 身份共鸣\n结构: 抛出影响力定义 → 结合演员经验论述 → 软性植入课程活动\n为什么火: 借势金钟奖演员王琄的深度人生阅历，引发女性对真诚与人际关系的共鸣\n改编角度: 结合女性自我成长痛点，邀请美妆或身心领域专家分享如何通过真诚沟通建立内在自信", "my": "每天下班回到家，看着镜子里那个连说话都有气无力的自己，你是不是也觉得很累？\n\n很多妈妈都以为，只要自己把家里打理好，把孩子照顾周到，生活就会慢慢变好。\n\n我认为，真正让日子过得舒服的，不是把自己塞进完美的角色里，而是停下来，听听身体和心里真正想要什么。\n\n我们可以从三个小改变开始。\n\n第一，每天给自己留十分钟的安静时间。关掉手机，只是坐着深呼吸，让紧绷的肩膀慢慢沉下来。这样做能帮我们从一整天的忙乱里抽离，找回自己的呼吸节奏。\n\n第二，试着把目光从别人身上收回来。别再去猜别人是不是满意你的表现，多问问自己今天过得好不好。这样做能帮我们减少内耗，不再把力气浪费在不必要的事情上。\n\n第三，在感到委屈的时候，允许自己说一声我累了。不用勉强自己撑着当个超人，把盔甲放下一点点。这样做能帮身体卸下压力，找回久违的松弛感。\n\n我也经历过一边上班一边照顾家庭、忙得连饭都顾不上吃的时候，那种被生活推着走的日子，真的很难熬。\n\n后来我慢慢学会了照顾自己，才发现生活其实可以有另一种温柔的节奏。\n\n如果你也想找回那个放松的自己，可以先从体验一次 Hers Spa 开始，让身心真正放松下来。\n\n希望能帮到大家。", "tags": "", "bait": true, "type": "Carousel", "likes": 164, "comments": 29, "er": 0.77, "followers": 25138, "date": "2026-10-12", "url": "https://www.instagram.com/p/DeZL0LhlJFp/", "video": false, "ratio": 0, "score": 1.0, "status": "未处理", "x": 2.7}, {"id": "DeJu99kk7DI", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "有一份不錯的收入，跟真正擁有「資產」，其實是兩回事。\n\n💬 留言「飛」，一起把努力賺來的錢，慢慢變成未來的選擇權。\n\n辣媽 Shania 郭雅芸在金融業待了 14 年，一路做到外商銀行董事，職涯期間的底薪更成長了約 6～7 倍。\n\n她一直都很會工作，也有能力把收入往上拉。\n\n而過去累積下來的資本，也讓她後來有機會轉身，投入烘焙、自媒體與內容創作，重新選擇自己想過的生活。\n\n但真正讓她開始認真思考「投資」這件事，是在 45 歲左右。\n\n當體力開始改變、退休逐漸變成可以想像的未來，她發現一件事：\n\n我們不可能永遠只靠自己工作來換收入。\n\n於是，她重新鑽研投資、資產配置與長期累積，也慢慢建立起另一套看待金錢的方式。\n\n她很喜歡一句話：\n\n「每一分錢，都是一個工人。」\n\n當我們工作的同時，也要學著讓手上的錢開始工作。\n\n因為時間會讓人變老，但如果懂得配置與複利，時間也可能成為累積財富最重要的夥伴。\n\n2027《姐帶妳飛》，我們邀請辣媽 Shania 郭雅芸，和妳一起聊聊：\n\n如何從「努力賺錢」，走向「開始累積資產」，\n看懂配置、理解複利，替未來的自己多留一點選擇。\n\n💬 留言「飛」，我們把 2027《姐帶妳飛》課程資訊傳給妳。\n\n#姐帶妳飛 #女力學院 #辣媽Shania #理財 #財商 資產配置 女性成長", "transcript": "", "brk": "Hook类型: 身份共鸣\n结构: 痛点引入 → 嘉宾故事 → 核心观点 → 课程转化\n为什么火: 精准击中熟龄女性对体力衰退与财务未来的焦虑，引发强共鸣\n改编角度: 结合抗衰与内养，探讨如何像管理资产一样科学管理身体与保养预算", "my": "每天忙着照顾家里和工作，你是不是也觉得，自己好像在用健康换钱。\n\n很多妈妈都这样，觉得自己只要再努力一点，生活就会变好。\n\n我以前也是这样，一边上班，一边兼顾家庭，每天像个陀螺一样转个不停，撑得太久，连自己想要什么都不知道了。\n\n其实不是我们不够努力，而是我们太习惯把所有人放在自己前面，却忘了照顾自己的身体和内心。\n\n我认为，可以从三个温和的小改变开始，慢慢把自己找回来。\n\n第一个方法是每天花十分钟进行呼吸觉察。\n\n找一个舒服的角落坐下来，闭上眼睛，把注意力放在呼吸上。\n\n这个练习不需要花钱，只需要一点属于你自己的时间。\n\n做完之后，你会发现紧绷的肩膀慢慢放松了，心里也没有那么急躁了。\n\n第二个方法是安排一次 Hers Spa 体验。\n\n价格在 RM50 到 RM600 之间，你可以根据自己的时间挑选合适的项目。\n\n在专业仪器的温和照顾下，让紧绷的身体彻底放松下来。\n\n做完之后，你会重新感受到身体的轻盈，找回那种被照顾的温柔感觉。\n\n第三个方法是参加一场沙龙会。\n\n门票在 RM80 到 RM250 之间，这是一次很轻松的线下聚会。\n\n在这里，你可以听听其他女性的故事，把心里一直压抑的委屈说出来。\n\n做完之后，你会发现原来很多妈妈都和你一样，你并不孤单。\n\n很多姐妹一开始也是这样，每天被家庭和工作填满，甚至分不清什么是生活，什么是生存。\n\n后来她们通过 Hers 的冥想和咨询，慢慢学会了停下来，重新看清自己的需要。\n\n现在的她们，不仅找回了内心的平静，也重新拥有了选择生活的能力。\n\n如果你也想找回那个温柔而有力量的自己，可以私信我了解更多内容。\n\n希望能帮到大家。", "tags": "姐帶妳飛, 女力學院, 辣媽Shania, 理財, 財商", "bait": true, "type": "Carousel", "likes": 116, "comments": 20, "er": 0.54, "followers": 25138, "date": "2026-10-06", "url": "https://www.instagram.com/p/DeJu99kk7DI/", "video": false, "ratio": 0, "score": 0.7, "status": "未处理", "x": 1.9}, {"id": "DeCAs8SiPS8", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "「每天不知道要穿什麼」可以先\"收藏\"起來～\n\n每天選衣服，我們很常先想：今天穿什麼？這件顯不顯瘦？會不會太正式？\n\n而好萊塢知名造型師 Erin Walsh 則認為，比起她人怎麼想，可以先思考「今天的我，希望自己是什麼狀態？」\n\n因為有重要的簡報，所以想掌控局面\n因為明天是假日，所以想放鬆一點\n因為很疲倦，所以想有活力一些\n\n透過將衣服的選擇權，掌握回自己身上，讓一天的起點，就開始由自己作主。\n\n如果這篇\"收藏數\"超過 30，我們下一篇就整理 Erin Walsh 推薦的幾套「意識穿搭法」給大家～", "transcript": "", "brk": "Hook类型: 痛点直击\n结构: 日常穿衣困惑 → 名人观点启发 → 拿回选择权 → 互动征集解锁下期\n为什么火: 击中女性日常穿衣内耗，用“状态导向”重塑穿搭赋能心理\n改编角度: 结合内调保养，将“今天穿什么”转化为“今天想拥有什么气色与能量”", "my": "每天早上起床，你是不是也站在衣柜前面，看了半天不知道该穿什么？\n\n很多姐妹以为，只要多买几套流行款，或者花时间搭配，就能解决出门前的焦虑。\n\n其实不是这样的。\n\n我认为，问题不在于衣服够不够，而是我们在选衣服的时候，总是在想别人会怎么看，而不是问问自己今天真正需要什么。\n\n第一步，试着问自己今天希望是什么状态。如果今天有重要的工作要面对，你想让自己看起来沉稳有力，那就选那件能带给你底气的衣服。\n\n第二步，把选衣服的主动权拿回来。如果今天真的很累，那就穿得舒服一点，不用为了迎合谁的目光而勉强自己。\n\n第三步，试着在出门前花三分钟闭上眼睛，感受一下今天的呼吸。通过简单的觉察，把注意力重新放回自己身上，让一天的起点由自己作主。\n\n很多妈妈都这样，每天早上张罗完孩子和家里的事，留给自己挑衣服的时间不到几分钟，总是随便套上一件，镜子里看到的自己，好像早就失去了生气。\n\n我也经历过这样的阶段，每天像陀螺一样转个不停，连好好照镜子的心情都没有，更不知道自己真正喜欢什么。\n\n后来我开始调整，从每天留出一点时间照顾自己的状态开始，慢慢把生活的主动权找回来。\n\n如果你也想重新认识自己，可以先从参与一次我们的线下沙龙会开始，门票在 80 到 250 令吉之间，很适合给自己一个放松的下午。\n\n希望能帮到大家。", "tags": "", "bait": false, "type": "Carousel", "likes": 94, "comments": 0, "er": 0.37, "followers": 25138, "date": "2026-10-03", "url": "https://www.instagram.com/p/DeCAs8SiPS8/", "video": false, "ratio": 0, "score": 0.37, "status": "未处理", "x": 1.0}, {"id": "DewW6nujbKk", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "當我們習慣用直覺給出答案，也代表直覺已經限制了自己。💬 留言「講座」，讓我們把《2027 姐帶妳飛》免費體驗課資訊傳給妳。\n\n「不是本科系，應該沒辦法轉行吧。」「現在這個年紀，重新開始太晚了。」「穩定的工作，才是好工作。」\n\n這些判斷，有些來自現實條件，有些來自家人的叮嚀，也有些來自過去吃過的虧。但時間一久，我們連了解其他選項，都容易覺得沒有必要。\n\n路，就可能會越走越窄。\n\n2027《姐帶妳飛》，透過 30 位跨領域的姐、每週微行動與社群交流，陪妳從不同的人生經驗裡，重新思考自己的下一步。\n\n留言獎「講座」，一起跳脫直覺，給自己不同的成長選擇 💛\n\n#女力學院 #姐帶妳飛 #思維 #真確 #直覺", "transcript": "", "brk": "Hook类型: 痛点直击\n结构: 罗列限制性思维 → 指出路越走越窄 → 给出跨界成长解决方案\n为什么火: 精准戳中女性转行与年龄焦虑，引发对自我限制的反思\n改编角度: 结合内调养生或抗衰痛点，切入“别让错误保养习惯限制美丽”", "my": "很多妈妈常说，我每天转个不停，却不知道自己在忙什么。\n\n你可能以为，只要再多撑一下，或者把家里和工作都安排好，情况就会变好。\n\n其实不是，总是把自己放在最后，才是让我们越来越累的真正原因。\n\n我认为，可以从三个日常里的小改变开始。\n\n第一，每天给自己留十分钟。\n\n什么都不要做，就只是静静地坐着，听听自己的呼吸。\n\n花费是 RM0，做完之后，你会觉得心里没有那么挤了。\n\n第二，试着把家务分担出去。\n\n把一些琐事交给其他人，不要一个人全部扛下来。\n\n这样做能帮我们空出一点时间，找回一点自己的呼吸。\n\n第三，给自己安排一次放松的体验。\n\n比如来参加我们的 Hers Spa，或者花 RM80 到 RM250 参加一场线下的沙龙会。\n\n去感受一下被照顾的感觉，让紧绷的身体慢慢松下来。\n\n很多妈妈以前总觉得，照顾好所有人，才是自己的责任。\n\n卡在生活的琐事里，每天都在内耗，连喘口气都觉得奢侈。\n\n当她们开始学着关注自己、放慢脚步以后，状态慢慢就变了。\n\n如果不需要再满足任何人的期待，也不需要再证明自己有多成功，你真正想要的生活是什么样子？\n\n如果你也想给自己一点时间，可以私信我们，了解 Hers Spa 或沙龙会的活动详情。\n\n希望能帮到大家。", "tags": "女力學院, 姐帶妳飛, 思維, 真確, 直覺", "bait": true, "type": "Carousel", "likes": 57, "comments": 12, "er": 0.27, "followers": 25138, "date": "2026-10-21", "url": "https://www.instagram.com/p/DewW6nujbKk/", "video": false, "ratio": 0, "score": 0.37, "status": "未处理", "x": 1.0}, {"id": "DeHKMBck2Uz", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "一段感情怎麼開始，也許可以從星盤找到線索。但它能不能走得長久，最後還是回到我們怎麼經營。💬 留言「飛」，和白瑜一同學習如何「成熟」的愛一個人。\n\n白瑜原本有金融與企業背景，也曾經很習慣把每一個人生角色做好。直到感情、婚姻與人生接連遇到挫折，她才開始回頭問自己：我真正想要的是什麼？為什麼我會有這些感受？\n\n從閱讀、催眠、心理學、東方哲學和西方哲學，到身心靈與占星，她一路學了很多工具。但走到後來，她發現比起把目光放在對象上，不如將視線拉回自己身上，如何在感情中建立安全感？知道自己為何害怕失去？\n\n2027《姐帶妳飛》邀請占星師、潛意識研究者 白瑜，帶妳看懂自己的情緒慣性與依附模式，練習建立一段能安心靠近，也不必失去自己的親密關係。💬 留言「飛」，讓幸福不只發生在相愛的那一天，也存在於我們慢慢學會如何去愛的後半段。", "transcript": "", "brk": "Hook类型: 痛点直击\n结构: 情感困惑引入 → 个人挫折转折 → 自我觉察核心 → 课程/产品价值交付\n为什么火: 精准击中女性在亲密关系中的不安全感，倡导向内探索而非盲目向外索取。\n改编角度: 结合女性身心保养，探讨内在压力如何投射到外在肌肤与状态，引导粉丝通过自我关爱找回平衡。", "my": "如果你也像我以前一样，每天忙着照顾家里和工作，常常觉得好累，但又不敢停下来。\n\n很多人以为，只要把家里打理好，把老公和孩子照顾周到，生活就会自然变好。\n\n其实不是，很多时候，我们只是把所有人的期待都扛在肩上，却唯独弄丢了自己。\n\n我认为，可以从三个温和的小步骤开始，慢慢把自己找回来。\n\n第一步，每天给自己留十分钟的安静时间。不用盘腿坐得很标准，只是闭上眼睛，感受一下自己的呼吸。这一刻，你不用满足任何人，只需要专注陪着自己。\n\n第二步，试着做一次一对一咨询催眠。很多时候，那些让我们觉得委屈和焦虑的情绪，藏在潜意识里很久了。通过温和的引导，你可以看见自己一直在对抗什么，慢慢放下心里的重担。\n\n第三步，给自己安排一次身心放松的体验。不管是 Hers Spa 还是线下冥想心灵课程，都是一个温柔的出口。让紧绷的身体先放松下来，心才能真正安住。\n\n以前的我，总是习惯把所有事情做到最好，却在夜深人静时觉得空虚和疲惫。\n\n现在的我明白，照顾好自己，不是一件奢侈的事，而是重新拿回生活选择权的开始。\n\n如果你也想重新认识自己，可以私信我，了解我们的沙龙会或者 Hers Spa 体验。\n\n希望能帮到大家。", "tags": "", "bait": true, "type": "Carousel", "likes": 35, "comments": 19, "er": 0.21, "followers": 25138, "date": "2026-10-05", "url": "https://www.instagram.com/p/DeHKMBck2Uz/", "video": false, "ratio": 0, "score": 0.37, "status": "未处理", "x": 1.0}, {"id": "DfhSDBSFIQv", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "最親近的人，為什麼最難好好說話？\n\n小時候，賴佩霞和母親住在同一間套房，生活大小事都得照母親的方式。她急著離家、擁有自己的家庭，婚後卻發現，住在一起不代表彼此靠近。\n\n與丈夫出遊時，相機意外落水，她氣得想直接罵人。但才剛講完第一句難聽的話，她就認出那是母親熟悉的語氣。她停下來問自己，是否值得為一台相機傷害眼前的人，也看見自己原來能選擇不同的回應。\n\n在非暴力溝通教學裡，她分享如何說出需要、提出具體請求。例如想感受到愛，就告訴丈夫，希望每天睡前親她一下，同時尊重對方說不的自由。\n\n她也邀請朋友與學員交流生活難題，整理進暢銷十萬本的《我想跟你好好說話》，並與多位發起人共同成立「中華好好說話，學會」，讓更多人一起練習溝通。\n\n2027《姐帶妳飛》邀請賴佩霞，帶來「把話說進心裡：聆聽自己，也聆聽他人，讓溝通更有理解與連結」，陪妳練習清楚表達，也聽懂對方的底層需求。\n\n給在關係中煩惱如何相處的妳 💬 留言「講座」，領取免費體驗課連結與詳情。\n\n#姐帶妳飛 #女力學院 #賴佩霞 #好好說話 #非暴力溝通", "transcript": "", "brk": "Hook类型: 痛点直击\n结构: 引入原生家庭创伤 → 觉察情绪投射 → 给出非暴力沟通解法 → 引导转化\n为什么火: 精准戳中最亲近的人最难好好说话的普遍痛点，引发女性情感共鸣与反思\n改编角度: 结合女性身心健康，探讨如何通过觉察与沟通化解内耗，提升亲密关系质量", "my": "最親近的人，為什麼常常最容易讓我們感到心累？\n\n很多媽媽都這樣，每天忙完工作又要照顧家裡，心裡明明滿肚子委屈，話到嘴邊卻變成了指責。\n\n妳可能以為，夫妻關係要變好，必須花很多錢去上昂貴的婚姻諮商，或者把兩人的相處模式全部推翻重來。\n\n但其實不是，很多時候，我們只是在不知不覺中，複製了從小到大看過的溝通模式。\n\n我認為，可以從三個小地方開始調整。\n\n第一，每天給自己十分鐘的安靜時間。\n這能幫我們從一整天的忙碌中抽離出來，先聽見自己的呼吸，而不是急著去滿足別人的期待。\n\n第二，練習把指責換成說出自己的需要。\n當妳覺得很累的時候，可以直接告訴另一半，希望今晚能有十五分鐘不被打擾的時間，同時也允許對方有自己的空間。\n\n第三，在情緒上來的時候先停三秒鐘。\n問問自己，現在這句話是為了溝通，還是只是想宣洩情緒？\n\n我也經歷過這樣的生活，一邊上班一邊照顧三個孩子，常常覺得自己像個轉個不停的陀螺，撐得太久，連自己真正想要的是什麼都忘了。\n\n當我開始學會放慢腳步、重新認識自己，我發現，夫妻之間的相處其實可以不用那麼緊繃。\n\n如果妳也想找回內心的平靜，或是想了解更多關於自我探索的方法，可以來了解我們的一對一諮詢催眠。\n\n希望能幫到大家。", "tags": "姐帶妳飛, 女力學院, 賴佩霞, 好好說話, 非暴力溝通", "bait": true, "type": "Carousel", "likes": 48, "comments": 14, "er": 0.25, "followers": 25138, "date": "2026-11-09", "url": "https://www.instagram.com/p/DfhSDBSFIQv/", "video": false, "ratio": 0, "score": 0.36, "status": "未处理", "x": 1.0}, {"id": "DerNWA-lHOH", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "很多人不是沒有想法，而是一直在等一個「契機」才想要開始。💬 留言「飛」，讓正在迷惘職涯、人生前景的妳，一起開始行動，找到專屬於自己的優勢和機會。\n\n現在教生涯設計、主持《佐編茶水間》的 Zoey，高中時，她甚至因經常缺課而肄業。第一次認真規劃未來，是想去澳洲打工度假，卻被爸爸一句「你只是在為逃避做好準備」打醒。\n\n後來她才慢慢學會：人生不一定要一次就選對方向。先測試三個月、先爭取遠距、先把設計和寫作能力提升，再從小衣櫥錄下 Podcast 第一集。\n\n這些小行動，最後一路長成超過 400 集、千萬次下載的《佐編茶水間》。\n\n很多時候，專屬於你的機會和優勢不是想出來的，而是在行動裡慢慢探索找出來的。\n\n2027《姐帶妳飛》邀請 Zoey 佐依，陪妳把關於職涯或生活的嚮往拆成做得到的小事情，並找到下一個值得發光的舞台。💬 留言「飛」，讓我們一起在 2027 年，用「行動」找到人生的新方向。", "transcript": "", "brk": "Hook类型: 痛点直击\n结构: 戳破等待契机迷思 → 知名人物逆袭故事 → 总结微小行动法则 → 引导评论转化\n为什么火: 用大众熟知的KOL真实低谷与破局经历，精准共鸣迷茫女性的成长焦虑。\n改编角度: 讲述女性从内耗到通过Wellness小习惯找回掌控力的真实蜕变故事。", "my": "很多人不是没有想法，而是一直在等一个完美的契机，才敢开始照顾自己。\n\n你是不是也以为，想要找回状态，就要花很多钱去上大课，或者彻底换掉现在的生活。\n\n我认为，其实不是这样的，真正让你停下来的，往往是把改变想得太难了。\n\n我们可以从第一个方法开始，花八十到二百五十块，来参加一次线下沙龙会。这个方法能让你在轻松的氛围里，听听其他女性的故事，先跨出第一步。做完之后，你会发现原来照顾自己不用那么大费周章。\n\n第二个方法是，给自己安排一次五十到六百块的 Hers Spa 体验。这个方法能给身体一个放松的空间，把积累下来的疲惫先放下。花一点时间跟自己相处，做完之后，整个人会觉得轻盈很多。\n\n第三个方法是，尝试一次一百五十到三百块的一对一咨询催眠。这个方法能陪你看到内心的纠结，把那些说不出口的委屈慢慢理清楚。找到卡住的地方之后，你会更有力量去面对生活。\n\n很多妈妈都这样，撑得太久，忘了照顾自己，每天围着孩子和家庭转，连照镜子的时间都没有。\n\n用对方法以后，学会先照顾自己，身体和心情慢慢放松下来，也有了重新认识自己的空间。\n\n希望能帮到大家，如果你也想找回属于自己的状态，可以私信我们了解更多。希望能帮到大家。", "tags": "", "bait": true, "type": "Carousel", "likes": 70, "comments": 4, "er": 0.29, "followers": 25138, "date": "2026-10-19", "url": "https://www.instagram.com/p/DerNWA-lHOH/", "video": false, "ratio": 0, "score": 0.33, "status": "未处理", "x": 0.9}, {"id": "DeVpJ2oiaZG", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "在世界的某些角落，女孩的人生，可能在還沒成年以前就被決定了。\n\n全球每年仍有超過 1,200 萬名女孩在 18 歲以前結婚，平均約每 3 秒，就有一個女孩進入童婚。\n\n2012 年，第一屆「國際女孩日」就曾關注童婚；14 年後，2026 年再次把焦點放回女孩的成長權利。\n\n但這些年並不是沒有改變，當議題被看見，教育、法律與政策才有機會開始前進。\n\n而國際女孩日關注的，也不只是今天的「女孩」。當她長大以後，能不能擁有選擇工作、生活與人生方向的能力，同樣重要。\n\n女力學院相信：�女性成長＝經濟獨立 × 思想獨立 × 行動獨立。\n\n我們透過學習、陪伴與社群連結，陪女性累積選擇人生的力量。💬 留言「講座」，免費體驗女力學院 2027 年度課程。", "transcript": "", "brk": "Hook类型: 痛点直击\n结构: 宏观社会痛点数据 → 议题历程回顾 → 品牌女性成长公式 → 评论区留资转化\n为什么火: 用触目惊心的全球童婚数据瞬间抓取眼球，自然引出女性自主选择的深度价值。\n改编角度: 结合女性健康与自我保养，从“身体自主权”切入，探讨女性如何通过内外兼修拿回人生掌控权。", "my": "我好累，但不敢停下来，这大概是很多妈妈每天心里的声音。\n\n很多姐妹觉得，想要找回自己，是不是得抛下家庭，或者花很多钱去学那些很深奥的东西。\n\n我认为，其实不需要把生活全盘推翻，很多时候，我们只是把自己放得太靠后了。\n\n我们可以从三个很小、很简单的方法开始。\n\n第一，每天给自己留十分钟的安静时间。只是闭上眼睛，听着自己的呼吸，什么都不用想。很多学员反馈，这样做能让紧绷的肩膀慢慢松下来，不再那么焦虑。\n\n第二，试着把照顾自己的需求，排在照顾家人之前的一小段时间里。不用觉得内疚，因为只有你的杯子满了，你才有水去倒给别人。\n\n第三，给自己一个机会，去参加一次我们的沙龙会，价格在 80 到 250 林吉特之间。在这里，你会发现很多妈妈都面临着同样的困惑，你并不孤单。\n\n很多妈妈以前总觉得，只要把家里人照顾好，自己受点委屈没关系。\n\n但在 Hers 的陪伴下，她们开始慢慢找回自己的状态，学会温柔地对自己。\n\n如果你也想找回属于自己的力量，可以私信我了解沙龙会的详细信息。\n\n希望能帮到大家。", "tags": "", "bait": true, "type": "Carousel", "likes": 66, "comments": 4, "er": 0.28, "followers": 25138, "date": "2026-10-11", "url": "https://www.instagram.com/p/DeVpJ2oiaZG/", "video": false, "ratio": 0, "score": 0.31, "status": "未处理", "x": 0.8}, {"id": "DfetVddFEIc", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "為了不被說閒話，妳已經放棄多少自己喜歡的事？\n\n喜歡的衣服不敢穿，有不同想法或意見也先保持沉默。時間一長，有時候連自己想做些什麼，都要先在心中想說，別人會不會討厭妳。\n\n薔薔在訪談裡談到，她不會因為外界對外貌、穿著的評價，就放棄自己喜歡的樣子。她也曾在專訪裡提到，父親對她的打扮有很多限制，但她仍認為，可以聽愛她的人的建議，不必活成他們眼中的樣子。\n\n「妳這樣不太好吧」，無論是來自於朋友、親人或甚至陌生人，他們這句話背後，可能是直覺，也有可能是關心，但無論如何，他們所考量的層面，都無法代替你的心聲。\n\n而現實是更多時候，心裡知道自己想怎麼選，生活上卻還做不到。想離開一段關係，會希望考量之後住哪裡；想換一份工作，得先算生活費能不能撐過空窗期。\n\n因此薔薔在訪談裡提醒我們，不要放棄自己賺錢的能力。自己的收入、能帶著走的工作能力，還有願意支持妳的人，都可能讓下一個選擇多一點空間。2027《姐帶妳飛》我們榮幸邀請到薔薔，分享「不討好所有人，走向世界的舞台」。想聽她親自聊聊，面對外界的批評與關係裡的挫折，她怎麼守住自己的本心，並為自己累積敢作選擇的底氣。\n\n如果妳也想擺脫他人眼光的束縛，走出一條專屬於自己的道路，💬留言「講座」，我們把女力學院免費體驗講座資訊傳給妳～\n\n#女力學院 #姐帶妳飛 #薔薔 #批評 #成長", "transcript": "我不會因為這些人對我說的話我就要把我自己弄醜吧很到我臉上要畫兩刀嗎就是我每次一個錯的戲嗎或是我愛穿這些衣服就是錯的事情嗎或男朋友是恐怖情人可是呢我被他這樣對待之後我很勇敢的去反抗是勇很勇敢去解決所有的問題很勇敢的去跟他對抗應得回到不好的經歷不好的經驗才會變成一整身中的養生跟讓你知道怎麼樣這邊就這個社會你一定要跌倒過你才有站著起來的機會但是我覺得每個人離開的勇氣就是你有沒有潛力的氣所以女生不能放棄自己賺錢的能力經濟才能夠支撐你的美才能夠支撐你的自信更能夠支撐你的價值你還要更能夠支撐你的底氣想知道為什麼我變得這麼瘋這麼有感這麼做自己的嗎2027年我會在女力學院截待你飛然後呢可以把更多的力量還有更多可以做自己的力量通通分享給你們哦讓你們不再畏懼這個現實的社會", "brk": "Hook类型: 痛点直击\n结构: 质疑外界眼光 → 引用名人态度 → 强调经济独立 → 引出活动转化\n为什么火: 精准击中女性长期被外界眼光束缚的心理痛点，借势名人强化底气。\n改编角度: 结合女性保健与内调外养，谈经济独立与自我悦纳才是对抗焦虑的底气。", "my": "为了不被说闲话，你已经放弃多少自己喜欢的事了。\n\n你可能会觉得，只要把家里照顾好、把工作做好，日子就能过下去。\n\n很多妈妈都这样，撑得太久，忘了照顾自己。\n\n其实不是你不够好，而是你把所有的力气，都用来满足别人的期待了。\n\n我认为，可以从三个日常小事开始，找回自己的节奏。\n\n第一，每天给自己留十分钟。关掉手机，只是安静地坐着，或者听一段冥想音乐，让紧绷的呼吸慢下来。\n\n第二，试着把注意力放回自己身上。不用急着改变什么，只是去觉察自己的身体哪里累了，今天有没有好好吃一顿饭。\n\n第三，允许自己有情绪。如果觉得委屈，不要总是忍着，找个安全的地方哭一场，或者跟我聊聊，把心里的话说出来。\n\n很多妈妈刚来找我的时候，每天都在家务和育儿里打转，觉得自己除了付出，什么都不是。\n\n当她们开始每天花十分钟做冥想，学会照顾自己的身体和情绪之后，整个人变得柔软而坚定，也重新找回了生活的主动权。\n\n以前的你，总是把所有人放在自己前面，最后连自己想要什么都忘了。\n\n现在的你，不仅懂得照顾家人，更知道怎么把温柔留给自己。\n\n如果你也想重新找回自己，可以先来参加我们的沙龙会。\n\n门票只要 80 到 250 令吉，让我们一起坐下来，喝杯茶，聊聊怎么重新认识自己。\n\n希望能帮到大家。", "tags": "女力學院, 姐帶妳飛, 薔薔, 批評, 成長", "bait": true, "type": "Video", "likes": 67, "comments": 1, "er": 0.27, "followers": 25138, "date": "2026-11-08", "url": "https://www.instagram.com/p/DfetVddFEIc/", "video": true, "ratio": 0, "score": 0.28, "status": "未处理", "x": 0.8}, {"id": "DdRIodFCf9C", "tracker": "WOMEN WELLNESS AND BEAUTY  竞对", "competitor": "woomanpower_official", "caption": "近期 40 歲 Lady Gaga 傳出迎來第一個孩子，年齡確實會影響生育力與懷孕風險，這是值得了解的醫療資訊。\n\n只是當「35歲」從醫療上的風險提醒，慢慢變成生活裡的倒數計時，很多女性焦慮的，可能已經不只有身體。\n\n「都幾歲了，怎麼還沒……？」\n年齡確實會影響生育力與懷孕風險，但人生也有自己的節奏，我們能不能在兩者之間，少一點催促，多一點理解？\n\n💬 對你來說，「幾歲了」這句話，曾經帶來什麼壓力？\n\n＊目前 Lady Gaga 尚未公開孩子的出生方式，本文僅由相關新聞延伸討論女性年齡與生育議題。\n\n#LadyGaga #女性議題 #生育焦慮 #年齡焦慮 #女力學院", "transcript": "", "brk": "Hook类型: 痛点直击\n结构: 明星热点引出医疗事实 → 剖析社会年龄倒计时焦虑 → 呼吁打破催促找回节奏\n为什么火: 借势明星话题精准戳中大龄女性生育与年龄焦虑的社会痛点\n改编角度: 结合内调保养与抗衰话题，鼓励女性摆脱年龄焦虑活出自己的节奏", "my": "当 35 岁变成一句倒数计时，你是不是也开始慌了？\n\n很多姐妹以为，只要自己拼命抓紧时间，就能把生活和家庭的事情全部安排好。\n\n我认为，真正让人透不过气的，从来不是岁数，而是心里那根一直紧绷着的弦。\n\n我们可以通过三件事情，慢慢找回自己的节奏。\n\n第一件是每天花十分钟进行自我觉察。找一个安静的角落坐下来，闭上眼睛，只听自己的呼吸，不去想家里大大小小的事情。这样做能让紧绷的神经放松下来，减少内耗。\n\n第二件是尝试参与 Hers Spa 的放松体验。通过温和的身体护理，把长期堆积在肩膀和背部的紧绷感释放掉，让身体重新学会深呼吸。\n\n第三件是给自己安排一次一对一咨询催眠。在专业陪伴下，去听听自己内心深处真正想要的是什么，不再被外界的各种声音推着走。\n\n以前总觉得自己必须跑得比别人快，每天忙到深夜，却越来越不知道自己到底在追求什么。\n\n后来学会每天留一点时间给自己，去感受呼吸，去照顾身体，整个人才终于松弛下来。\n\n如果你也经常觉得很累，希望能停下来喘口气，可以了解一下 Hers 的线上冥想音药课程，价格是 RM99 到 RM688 之间，随时可以开始练习。\n\n希望能帮到大家。", "tags": "LadyGaga, 女性議題, 生育焦慮, 年齡焦慮, 女力學院", "bait": false, "type": "Carousel", "likes": 67, "comments": 0, "er": 0.27, "followers": 25138, "date": "2026-09-14", "url": "https://www.instagram.com/p/DdRIodFCf9C/", "video": false, "ratio": 0, "score": 0.27, "status": "未处理", "x": 0.7}]</script>
+<script>
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const SUPA = 'https://tmvwdsaxzntqcgetzrka.supabase.co';
+const ANON = 'sb_publishable_uxp4iNW35n7gTbP-viuDvg_CUUHNA-m';
+const STATUSES = ["未处理", "拍摄中", "已处理", "跳过"];
+document.getElementById('updated').textContent = '更新于 2026-11-13 11:57 (GMT+8)';
+const PAGE = 48;
+let shown = PAGE;
+let videoOnly = false;
+let curTab = '全部';
+
+const $ = id => document.getElementById(id);
+const fmt = n => n >= 1e6 ? (n/1e6).toFixed(1)+'M' : n >= 1e3 ? (n/1e3).toFixed(1)+'K' : String(n);
+const getKey = () => ANON;  // anon key is baked in — safe, can only change status
+const I = n => '<svg class="ic"><use href="#i-' + n + '"/></svg>';
+const esc = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const byRec = {}; DATA.forEach(d => byRec[d.id] = d);
+const TRENDS = [["姐妹悄悄話", 5], ["sisterstalktalkshow", 5], ["ep220", 2]];
+DATA.forEach(d => {
+  d.days = d.date ? Math.max(0, Math.floor((Date.now() - new Date(d.date + 'T00:00:00')) / 864e5)) : null;
+  d.horse = d.followers > 0 && d.followers < 50000 && ((d.x || 0) >= 2 || d.score >= 10);
+});
+const PRESETS = [
+  { k: 'px', icon: 'trend', label: '真爆款 ×2+', f: d => (d.x || 0) >= 2 },
+  { k: 'pn', icon: 'star', label: '近7天', f: d => d.days !== null && d.days <= 7 },
+  { k: 'ph', icon: 'zap', label: '黑马', f: d => d.horse },
+  { k: 'pb', icon: 'magnet', label: '引流帖', f: d => d.bait },
+];
+const presetOn = {};
+
+function toast(msg, ok) {
+  const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  t.style.borderColor = ok ? 'var(--green)' : 'var(--red)';
+  clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+// filters
+const comps = [...new Set(DATA.map(d => d.competitor))].sort();
+comps.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = '@'+c; $('fComp').appendChild(o); });
+[...new Set(DATA.map(d => d.tracker))].forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; $('fTracker').appendChild(o); });
+
+function matchQ(d) {
+  const q = ($('fSearch').value || '').trim().toLowerCase();
+  return !q || (d.caption + ' ' + (d.tags || '') + ' ' + (d.transcript || '') + ' ' + (d.brk || '') + ' ' + d.competitor).toLowerCase().includes(q);
+}
+
+function basePool() {
+  const t = $('fTracker').value, c = $('fComp').value;
+  return DATA.filter(d => (!t || d.tracker === t) && (!c || d.competitor === c) && (!videoOnly || d.video)
+    && matchQ(d) && PRESETS.every(p => !presetOn[p.k] || p.f(d)));
+}
+
+function filtered() {
+  const s = $('fSort').value;
+  let arr = basePool().filter(d => curTab === '全部' || d.status === curTab);
+  const key = { score:'score', er:'er', comments:'comments', likes:'likes', x:'x' }[s];
+  if (s === 'date') arr.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  else arr.sort((a,b) => (b[key]||0) - (a[key]||0));
+  return arr;
+}
+
+let dragRec = null;
+
+function renderTabs() {
+  const pool = basePool();
+  const counts = { '全部': pool.length };
+  STATUSES.forEach(s => counts[s] = pool.filter(d => d.status === s).length);
+  $('tabs').innerHTML = '';
+  ['全部', ...STATUSES].forEach(name => {
+    const el = document.createElement('div');
+    el.className = 'tab' + (curTab === name ? ' on' : '') + (name !== '全部' ? ' droppable' : '');
+    el.innerHTML = esc(name) + ' <span class="cnt">' + counts[name] + '</span>';
+    el.onclick = () => { curTab = name; shown = PAGE; render(); };
+    if (name !== '全部') {
+      el.ondragover = e => { if (dragRec) { e.preventDefault(); el.classList.add('over'); } };
+      el.ondragleave = () => el.classList.remove('over');
+      el.ondrop = e => {
+        e.preventDefault(); el.classList.remove('over');
+        const d = byRec[dragRec]; dragRec = null;
+        if (d && d.status !== name) setStatus(d, name);
+      };
+    }
+    $('tabs').appendChild(el);
+  });
+}
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target, pid = el.dataset.pid;
+      if (!el.querySelector('iframe')) {
+        const f = document.createElement('iframe');
+        f.src = 'https://www.instagram.com/p/' + pid + '/embed/';
+        f.loading = 'lazy'; f.allow = 'autoplay; encrypted-media';
+        el.appendChild(f);
+      }
+      io.unobserve(el);
+    }
+  });
+}, { rootMargin: '400px' });
+
+async function setStatus(d, val) {
+  try {
+    const r = await fetch(SUPA + '/rest/v1/posts?post_id=eq.' + encodeURIComponent(d.id), {
+      method: 'PATCH',
+      headers: { 'apikey': ANON, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify({ status: val })
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    d.status = val;
+    cacheStatus(d.id, val);
+    toast('✓ @' + d.competitor + ' 已移到「' + val + '」', true);
+  } catch (e) {
+    toast('更新失败: ' + e.message + (String(e.message).includes('401') || String(e.message).includes('403') ? ' — 密钥无效?' : ''), false);
+  }
+  render();
+}
+
+function card(d, idx) {
+  const el = document.createElement('div');
+  el.className = 'card' + ((d.x || 0) >= 2 ? ' outlier' : '');
+  el.style.animationDelay = Math.min(idx % PAGE, 14) * 30 + 'ms';
+  el.draggable = true;
+  el.ondragstart = e => {
+    dragRec = d.id;
+    e.dataTransfer.effectAllowed = 'move';
+    el.classList.add('lifting');
+    document.body.classList.add('dragging');
+  };
+  el.ondragend = () => {
+    el.classList.remove('lifting');
+    document.body.classList.remove('dragging');
+    dragRec = null;
+  };
+  const typeIcon = d.video ? 'video' : (d.type === 'Carousel' ? 'layers' : 'image');
+  const days = d.days, horse = d.horse;
+  const ago = days === null ? '' : (days === 0 ? '今天' : days + '天前');
+  const lines = (d.caption || '').split('\n').map(l => l.trim()).filter(Boolean);
+  const hook = lines[0] || '';
+  const tr = (d.transcript && d.transcript !== '(转录失败)' && d.transcript !== '(无口播内容)') ? d.transcript : '';
+  el.innerHTML = `
+    <div class="embed" data-pid="${d.id}"><div class="ph"><svg class="ic"><use href="#i-${typeIcon}"/></svg></div></div>
+    <div class="meta">
+      <div class="row1">
+        <span class="handle" title="拖到上方 tab 即可归类">${I('grip')}</span>
+        <a class="who" href="https://www.instagram.com/${d.competitor}/" target="_blank">@${d.competitor}</a>
+        <span class="badge">${d.type || '-'}</span>
+        ${days !== null && days <= 7 ? '<span class="badge bnew">' + I('star') + '新帖</span>' : ''}
+        ${horse ? '<span class="badge bhorse">' + I('zap') + '黑马</span>' : ''}
+        ${d.bait ? '<span class="badge bbait" title="「留言XX」引流打法 — 评论被引流放大,漏斗设计值得学">' + I('magnet') + '引流</span>' : ''}
+        <span class="date" title="${d.date || ''}">${ago}</span>
+      </div>
+      <div class="nums">
+        <span class="num hot" title="Viral Score">${I('flame')}<b>${d.score}</b></span>
+        ${(d.x || 0) >= 2 ? '<span class="num x" title="是自家平均热度的多少倍">' + I('trend') + '<b>×' + d.x + '</b></span>' : ''}
+        <span class="num er" title="Engagement Rate">${I('pct')}<b>${d.er}%</b></span>
+        <span class="num" title="Likes">${I('heart')}<b>${d.likes > 0 ? fmt(d.likes) : '隐藏'}</b></span>
+        <span class="num" title="Comments">${I('msg')}<b>${fmt(d.comments)}</b></span>
+        <span class="num" title="Followers">${I('users')}<b>${fmt(d.followers)}</b></span>
+      </div>
+      <div class="cap" onclick="this.classList.toggle('open')"></div>
+      ${d.brk ? '<div class="ai" onclick="this.classList.toggle(&quot;open&quot;)"></div>' : ''}
+      ${d.my ? '<div class="mine" onclick="this.classList.toggle(&quot;open&quot;)"></div>' : ''}
+      <div class="srow"><label>状态</label><select class="status btn s${d.status}"></select>
+        <button class="abtn copy" title="复制完整文案">${I('copy')}文案</button>
+        ${tr ? '<button class="abtn mic" title="复制视频口播逐字稿">' + I('mic') + '口播</button>' : ''}
+        ${d.my ? '<button class="abtn minec" title="复制我的改写口播稿(可直接拍)">' + I('mic') + '我的稿</button>' : ''}
+        <button class="abtn brief" title="复制拍摄 Brief(数据+Hook+AI拆解+我的稿+口播稿+文案)">${I('clip')}Brief</button>
+        <a class="abtn" href="${d.url}" target="_blank" title="打开 Instagram 原帖">${I('ext')}</a></div>
+    </div>`;
+  const capEl = el.querySelector('.cap');
+  const restTxt = lines.slice(1).join('\n');
+  capEl.innerHTML = hook ? '<b>' + esc(hook) + '</b>' + (restTxt ? '<br>' + esc(restTxt).replace(/\n/g, '<br>') : '') : '';
+  const aiEl = el.querySelector('.ai');
+  if (aiEl) aiEl.innerHTML = '<b>💡 AI 拆解</b><br>' + esc(d.brk).split(String.fromCharCode(10)).join('<br>');
+  const myEl = el.querySelector('.mine');
+  if (myEl) myEl.innerHTML = '<b>🎬 我的版本(可直接拍)</b><br>' + esc(d.my).split(String.fromCharCode(10)).join('<br>');
+  const sel = el.querySelector('.status');
+  STATUSES.forEach(s => { const o = document.createElement('option'); o.value = s; o.textContent = s; sel.appendChild(o); });
+  sel.value = d.status;
+  sel.onchange = () => setStatus(d, sel.value);
+  el.querySelector('.copy').onclick = () =>
+    navigator.clipboard.writeText(d.caption || '').then(() => toast('✓ 文案已复制', true));
+  const micBtn = el.querySelector('.mic');
+  if (micBtn) micBtn.onclick = () =>
+    navigator.clipboard.writeText(tr).then(() => toast('✓ 口播稿已复制', true));
+  const mineBtn = el.querySelector('.minec');
+  if (mineBtn) mineBtn.onclick = () =>
+    navigator.clipboard.writeText(d.my).then(() => toast('✓ 我的改写稿已复制', true));
+  el.querySelector('.brief').onclick = () => {
+    const NL = String.fromCharCode(10);
+    const parts = ['🎬 爆款参考 @' + d.competitor + ((d.x || 0) >= 2 ? '(自家平均 ×' + d.x + ')' : ''),
+      '📊 🔥' + d.score + ' | ER ' + d.er + '% | ❤️ ' + (d.likes > 0 ? fmt(d.likes) : '隐藏') +
+      ' | 💬 ' + fmt(d.comments) + ' | 👥 ' + fmt(d.followers) + (ago ? ' | ' + ago : ''),
+      '🔗 ' + d.url, '✍️ Hook: ' + hook];
+    if (d.brk) parts.push('——— AI 拆解 ———', d.brk);
+    if (d.my) parts.push('——— 我的版本(可直接拍)———', d.my);
+    if (tr) parts.push('——— 竞对原口播稿 ———', tr);
+    parts.push('——— 完整文案 ———', d.caption || '');
+    navigator.clipboard.writeText(parts.join(NL)).then(() => toast('✓ Brief 已复制,可直接发给拍摄/剪辑', true));
+  };
+  io.observe(el.querySelector('.embed'));
+  return el;
+}
+
+function render() {
+  renderTabs();
+  const arr = filtered();
+  const grid = $('grid'); grid.innerHTML = '';
+  arr.slice(0, shown).forEach((d, i) => grid.appendChild(card(d, i)));
+  $('empty').style.display = arr.length ? 'none' : '';
+  $('moreWrap').style.display = arr.length > shown ? '' : 'none';
+}
+
+
+function applyStatusCache() {
+  try {
+    const c = JSON.parse(localStorage.getItem('st_cache') || '{}');
+    Object.keys(c).forEach(rid => { const d = byRec[rid]; if (d) d.status = c[rid]; });
+  } catch (e) {}
+}
+
+function cacheStatus(rid, val) {
+  try {
+    const c = JSON.parse(localStorage.getItem('st_cache') || '{}');
+    c[rid] = val; localStorage.setItem('st_cache', JSON.stringify(c));
+  } catch (e) {}
+}
+
+// live status refresh (so weekly-baked page shows current statuses)
+async function refreshStatuses() {
+  applyStatusCache(); render();  // last-known statuses first
+  if (Date.now() - (+localStorage.getItem('st_ts') || 0) < 600000) return;  // 10-min throttle
+  localStorage.setItem('st_ts', String(Date.now()));
+  const fresh = {};
+  try {
+    const r = await fetch(SUPA + '/rest/v1/posts?select=post_id,status', { headers: { 'apikey': ANON } });
+    if (!r.ok) return;
+    (await r.json()).forEach(row => {
+      const d = byRec[row.post_id];
+      if (d) d.status = row.status || '未处理';
+      if (row.status && row.status !== '未处理') fresh[row.post_id] = row.status;
+    });
+    localStorage.setItem('st_cache', JSON.stringify(fresh));
+    render();
+  } catch (e) {}
+}
+
+['fTracker','fComp','fSort'].forEach(id => $(id).onchange = () => { shown = PAGE; render(); });
+$('fSearch').oninput = () => { shown = PAGE; render(); };
+$('fVideo').onclick = () => { videoOnly = !videoOnly; $('fVideo').classList.toggle('on', videoOnly); shown = PAGE; render(); };
+$('moreBtn').onclick = () => { shown += PAGE; render(); };
+
+// preset quick filters
+$('presets').innerHTML = '<span class="lbl">快筛</span>';
+PRESETS.forEach(p => {
+  const c = document.createElement('span'); c.className = 'chip2';
+  c.innerHTML = I(p.icon) + esc(p.label);
+  c.onclick = () => { presetOn[p.k] = !presetOn[p.k]; c.classList.toggle('on', presetOn[p.k]); shown = PAGE; render(); };
+  $('presets').appendChild(c);
+});
+
+// trending hashtags among outlier posts
+if (TRENDS.length) {
+  $('trends').innerHTML = '<span class="lbl">爆款热词</span>';
+  TRENDS.forEach(([tag, n]) => {
+    const c = document.createElement('span'); c.className = 'chip2';
+    c.textContent = '#' + tag + ' ' + n;
+    c.onclick = () => { $('fSearch').value = $('fSearch').value === tag ? '' : tag; shown = PAGE; render(); };
+    $('trends').appendChild(c);
+  });
+} else { $('trends').style.display = 'none'; }
+
+render();
+refreshStatuses();
+</script>
+</body>
+</html>
